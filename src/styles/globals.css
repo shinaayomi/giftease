@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+  .app-select .ant-select-selector {
+    @apply h-10 border-[#F2F2F2] rounded-lg !important;
+  }
+  .app-select .ant-select-arrow {
+    @apply translate-y-1/2;
+  }
 }
 
 @font-face {

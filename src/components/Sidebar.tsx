@@ -11,12 +11,16 @@ import {
   SecuritySettingsIcon,
   SupportIcon,
 } from "@/utils/icons";
-import { Dropdown } from "antd";
+
 import type { MenuProps } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import dynamic from "next/dynamic";
+const Dropdown = dynamic(async () => await import("antd/es/dropdown"), {
+  ssr: false,
+});
 
 export default function Sidebar() {
   const router = useRouter();

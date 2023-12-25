@@ -3,8 +3,15 @@ import Sidebar from "./Sidebar";
 import Image from "next/image";
 import { AishaAliyu, Bear } from "@/utils/AppImages";
 import { Bellicon, DownArrowIcon } from "@/utils/icons";
-import { Dropdown } from "antd";
 import type { MenuProps } from "antd";
+import dynamic from "next/dynamic";
+const Dropdown = dynamic(async () => await import("antd/es/dropdown"), {
+  ssr: false,
+});
+
+const MenuProps = dynamic(async () => await import("antd/es/menu"), {
+  ssr: false,
+});
 
 interface IProps {
   children: ReactNode;
@@ -64,9 +71,7 @@ export default function DashboardLayout({ children }: IProps) {
                     height={32}
                     priority
                   />
-
-                  <p className="text-sm text-[#4F4F4F] me-2">Aisha </p>
-
+                  <p className="text-[#4F4F4F] me-2">Aisha</p>
                   <DownArrowIcon />
                 </div>
               </a>
@@ -76,7 +81,7 @@ export default function DashboardLayout({ children }: IProps) {
         {/* end top nav */}
 
         {/* start body section */}
-        <section className="min-h-screen bg-[#F5F6FA] px-4 md:px-6 lg:px-11">
+        <section className="min-h-screen bg-[#F5F6FA] px-4 md:px-6 lg:px-11 pt-28 pb-8">
           {children}
         </section>
         {/* end body section */}
