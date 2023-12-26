@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import type { ColumnsType } from "antd/es/table";
 import { AnyObject } from "antd/es/_util/type";
+import { DotMenuIcon } from "@/utils/icons";
 const Table = dynamic(async () => await import("antd/es/table"), {
   ssr: false,
 });
@@ -14,57 +15,100 @@ const Space = dynamic(async () => await import("antd/es/space"), {
 
 interface DataType {
   key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
+  paycodeId: string;
+  beneficiary: string;
+  amtGenerated: number;
+  amtRamaining: number;
+  dateCreated: string;
+  token: string;
+  status: string;
+  action: string;
 }
 
 const columns: ColumnsType<AnyObject> | undefined = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "PayCode ID",
+    dataIndex: "paycodeId",
+    key: "paycodeId",
     render: (text) => <a>{text}</a>,
   },
   {
-    title: "Age",
-    dataIndex: "age",
+    title: "Beneficiary",
+    dataIndex: "beneficiary",
     key: "age",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Amt Generated",
+    dataIndex: "amtGenerated",
+    key: "amtGenerated",
+    render: (price) => <>₦{price}</>,
   },
   {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag: any) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
+    title: "Amt Remaining",
+    key: "amtRamaining",
+    dataIndex: "amtRamaining",
+    render: (price) => <>₦{price}</>,
   },
   {
-    title: "Action",
+    title: "Date Created",
+    key: "dateCreated",
+    dataIndex: "dateCreated",
+  },
+  {
+    title: "Token",
+    key: "token",
+    dataIndex: "token",
+  },
+  {
+    title: "Status",
+    key: "status",
+    dataIndex: "status",
+    render: (status) => {
+      let color = "#828282";
+      let bg = "#F2F2F2";
+      if (status === "Active") {
+        color = "#008000";
+        bg = "#F0F8F0";
+      } else if (status === "Expired") {
+        color = "#EB5757";
+        bg = "#FBF1F1";
+      } else {
+        color = "#828282";
+        bg = "#F2F2F2";
+      }
+
+      return (
+        <div
+          className={`w-[108px] h-[35px] flex items-center justify-center gap-2 text-sm rounded-lg ${
+            status === "Active"
+              ? "bg-[#F0F8F0] text-[#008000]"
+              : status === "Expired"
+              ? "bg-[#FBF1F1] text-[#EB5757]"
+              : "bg-[#F2F2F2] text-[#828282]"
+          }`}
+        >
+          <span
+            className={`w-[10px] h-[10px] rounded-full ${
+              status === "Active"
+                ? "bg-[#008000]"
+                : status === "Expired"
+                ? "bg-[#EB5757]"
+                : "bg-[#828282]"
+            }`}
+          ></span>
+          {status}
+        </div>
+      );
+    },
+  },
+  {
+    title: " ",
     key: "action",
+    width: 60,
     render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
+      <button>
+        <DotMenuIcon />
+      </button>
     ),
   },
 ];
@@ -72,30 +116,43 @@ export default function PaycodeTable() {
   const data: DataType[] = [
     {
       key: "1",
-      name: "John Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
-      tags: ["nice", "developer"],
+      paycodeId: "efzteteu8648j904848..",
+      beneficiary: "Hira Mibwala",
+      amtGenerated: 56000,
+      amtRamaining: 3455,
+      dateCreated: "26/12/2023",
+      token: "5869696",
+      status: "Active",
+      action: "",
     },
     {
       key: "2",
-      name: "Jim Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
-      tags: ["loser"],
+      paycodeId: "efzteteu8648j904848..",
+      beneficiary:
+        "Hira Mibwala, Miebaka, Idris, Malik, Sunday, Tunde, Samuel, Ade, and 256 others",
+      amtGenerated: 54000,
+      amtRamaining: 4667,
+      dateCreated: "26/12/2023",
+      token: "5869696",
+      status: "Used",
+      action: "",
     },
     {
       key: "3",
-      name: "Joe Black",
-      age: 32,
-      address: "Sydney No. 1 Lake Park",
-      tags: ["cool", "teacher"],
+      paycodeId: "efzteteu8648j904848..",
+      beneficiary: "Hira Mibwala",
+      amtGenerated: 23454,
+      amtRamaining: 34578655,
+      dateCreated: "26/12/2023",
+      token: "5869696",
+      status: "Expired",
+      action: "",
     },
   ];
 
   return (
-    <div>
-      <Table columns={columns} dataSource={data} />
+    <div className="paycodeTable">
+      <Table columns={columns} dataSource={data} scroll={{ x: 1240, y: 240 }} />
     </div>
   );
 }

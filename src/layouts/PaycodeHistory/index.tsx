@@ -17,17 +17,17 @@ export default function PaycodeHistory() {
     <div>
       <DashboardLayout>
         <section>
-          <article className="flex items-center">
+          <article className="flex flex-wrap flex-col sm:flex-row items-center gap-4">
             <h2 className="text-[#4F4F4F] text-2xl md:text-[32px] font-satoshi-medium me-auto">
               Paycode
             </h2>
-            <div className="flex gap-3">
-              <button className="w-[200px] h-14 text-app-purple text-xl font-satoshi-medium rounded-lg border border-app-purple">
+            <div className="w-full sm:w-auto flex items-center flex-col sm:flex-row gap-3">
+              <button className="w-full sm:w-[200px] h-14 text-app-purple text-xl font-satoshi-medium rounded-lg border border-app-purple">
                 Check balance
               </button>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="w-[200px] h-14 bg-app-purple text-white text-xl font-satoshi-medium rounded-lg border border-app-purple"
+                className="w-full sm:w-[200px] h-14 bg-app-purple text-white text-xl font-satoshi-medium rounded-lg border border-app-purple"
               >
                 Send Voucher
               </button>
@@ -126,7 +126,7 @@ export default function PaycodeHistory() {
           </article>
         </section>
 
-        <section className="bg-white rounded-lg mt-5">
+        <section className="bg-white rounded-lg mt-5 overflow-x-scroll">
           <PaycodeTable />
         </section>
 

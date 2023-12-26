@@ -45,7 +45,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="min-h-screen flex flex-col bg-[#443792] px-6 pt-3 pb-14">
+    <aside className="min-h-screen flex flex-col bg-[#443792] px-3 sm:px-6 pt-3 pb-14">
       <Link className="w-fit mx-auto block" href="/" passHref>
         <Image
           src={GifteaseLogo}

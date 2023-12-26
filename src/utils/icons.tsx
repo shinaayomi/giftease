@@ -272,7 +272,7 @@ export const NigeriaIcon = ({ width = "32", height = "24" }) => {
       viewBox="0 0 32 24"
       fill="none"
     >
-      <g clip-path="url(#clip0_1_93)">
+      <g clipPath="url(#clip0_1_93)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -304,7 +304,7 @@ export const USAIcon = () => {
       viewBox="0 0 32 24"
       fill="none"
     >
-      <g clip-path="url(#clip0_1_106)">
+      <g clipPath="url(#clip0_1_106)">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -382,8 +382,8 @@ export const WalletIcon = () => {
           y2="20"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#27AAE1" />
-          <stop offset="1" stop-color="#5A4EF6" />
+          <stop stopColor="#27AAE1" />
+          <stop offset="1" stopColor="#5A4EF6" />
         </linearGradient>
       </defs>
     </svg>
@@ -424,8 +424,8 @@ export const Complainanticon = () => {
           y2="25.319"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#27AAE1" />
-          <stop offset="1" stop-color="#5A4EF6" />
+          <stop stopColor="#27AAE1" />
+          <stop offset="1" stopColor="#5A4EF6" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1_150"
@@ -435,8 +435,8 @@ export const Complainanticon = () => {
           y2="16.0633"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#27AAE1" />
-          <stop offset="1" stop-color="#5A4EF6" />
+          <stop stopColor="#27AAE1" />
+          <stop offset="1" stopColor="#5A4EF6" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_1_150"
@@ -446,8 +446,8 @@ export const Complainanticon = () => {
           y2="12.8883"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#27AAE1" />
-          <stop offset="1" stop-color="#5A4EF6" />
+          <stop stopColor="#27AAE1" />
+          <stop offset="1" stopColor="#5A4EF6" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_1_150"
@@ -457,8 +457,8 @@ export const Complainanticon = () => {
           y2="13.7564"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#27AAE1" />
-          <stop offset="1" stop-color="#5A4EF6" />
+          <stop stopColor="#27AAE1" />
+          <stop offset="1" stopColor="#5A4EF6" />
         </linearGradient>
       </defs>
     </svg>
@@ -574,6 +574,66 @@ export const CircularCloseIcon = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+};
+
+export const WarningIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M12 8H12.01M12 11V16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+        stroke="#9F0A0A"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const DotMenuIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M12 12H12.01M12 6H12.01M12 18H12.01M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17C12.5523 17 13 17.4477 13 18ZM13 6C13 6.55228 12.5523 7 12 7C11.4477 7 11 6.55228 11 6C11 5.44772 11.4477 5 12 5C12.5523 5 13 5.44772 13 6Z"
+        stroke="#828282"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const MenuIcon = () => {
+  return (
+    <svg
+      stroke="currentColor"
+      fill="none"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
     </svg>
   );
 };

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  .mobileDrawer .ant-drawer-body {
+    @apply p-0;
+  }
+
   .app-select .ant-select-selector {
     @apply h-10 border-[#F2F2F2] rounded-lg !important;
   }
@@ -12,6 +16,40 @@
 
   .app-input {
     @apply focus-within:border-[#E0E0E0];
+  }
+
+  .voucherModal .ant-modal {
+    max-width: 100%;
+  }
+  .voucherModal .ant-modal-content {
+    padding: 0;
+  }
+
+  .voucherModal .ant-select {
+    @apply h-auto;
+  }
+  .voucherModal .ant-select-selector {
+    @apply h-14 bg-[#F8F8F8] px-4 border-[#E0E0E0] !important;
+  }
+
+  .voucherModal .ant-input {
+    @apply border-[#E0E0E0] placeholder:text-[#828282];
+  }
+
+  .paycodeTable th {
+    @apply bg-white text-[#828282] font-normal !important;
+  }
+
+  .paycodeTable th::before {
+    display: none;
+  }
+
+  .paycodeTable td {
+    @apply text-[#333] align-top border-b-0 !important;
+  }
+
+  .paycodeTable .ant-pagination {
+    justify-content: center;
   }
 }
 
