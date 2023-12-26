@@ -160,6 +160,29 @@ export default function Dashboard() {
               </article>
 
               <article className="bg-white rounded-lg p-[16px_24px] mt-2">
+                <div className="flex justify-between">
+                  <p className="text-black text-xs">VOUCHER STATISTICS</p>
+                  <div className="app-select">
+                    <Select
+                      defaultValue="april"
+                      onChange={handleSelect}
+                      options={[
+                        {
+                          value: "april",
+                          label: "April",
+                        },
+                        {
+                          value: "may",
+                          label: "May",
+                        },
+                        {
+                          value: "june",
+                          label: "June",
+                        },
+                      ]}
+                    />
+                  </div>
+                </div>
                 <VoucherStatisticChart />
               </article>
             </div>
