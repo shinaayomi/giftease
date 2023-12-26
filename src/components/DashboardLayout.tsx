@@ -43,7 +43,7 @@ export default function DashboardLayout({ children }: IProps) {
       </aside>
       <section className="lg:ms-[320px]">
         {/* start top nav */}
-        <nav className="fixed top-0 right-0 left-0 lg:left-[320px] flex justify-between items-center bg-white border-b border-[#F2F2F2] px-4 md:px-6 lg:px-11 py-3">
+        <nav className="fixed top-0 right-0 left-0 lg:left-[320px] z-10 flex justify-between items-center bg-white border-b border-[#F2F2F2] px-4 md:px-6 lg:px-11 py-3">
           <div className="flex items-center gap-5">
             <Image
               src={Bear}

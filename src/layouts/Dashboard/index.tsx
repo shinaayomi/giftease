@@ -12,6 +12,7 @@ import {
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
+import VoucherStatisticChart from "./VoucherStatisticChart";
 
 const Select = dynamic(async () => await import("antd/es/select"), {
   ssr: false,
@@ -159,7 +160,7 @@ export default function Dashboard() {
               </article>
 
               <article className="bg-white rounded-lg p-[16px_24px] mt-2">
-                Chartjs
+                <VoucherStatisticChart />
               </article>
             </div>
 

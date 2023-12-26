@@ -156,6 +156,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "@faker-js/faker@npm:8.3.1"
+  checksum: ed50c27a5674a8c755574ccc0c79c29fa70cd17d524b701269f584d2f78720c690da219f6111b0e743a4f6570fb08685d826b2d9e80ca9c1484b8c26047864c6
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.13":
   version: 0.11.13
   resolution: "@humanwhocodes/config-array@npm:0.11.13"
@@ -234,6 +241,13 @@ __metadata:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
   checksum: 0ea0b2675cf513ec44dc25605616a3c9b808b9832e74b5b63c44260d66b58558bba65764f81928fc1033ead911f8718dca1134049c3e7a93937faf436671df31
+  languageName: node
+  linkType: hard
+
+"@kurkle/color@npm:^0.3.0":
+  version: 0.3.2
+  resolution: "@kurkle/color@npm:0.3.2"
+  checksum: a9e8e3e35dcd59dec4dd4f0105919c05e24823a96347bcf152965c29e48d6290b66d5fb96c071875db752e10930724c48ce6d338fefbd65e0ce5082d5c78970e
   languageName: node
   linkType: hard
 
@@ -1081,6 +1095,15 @@ __metadata:
     ansi-styles: "npm:^4.1.0"
     supports-color: "npm:^7.1.0"
   checksum: 4a3fef5cc34975c898ffe77141450f679721df9dde00f6c304353fa9c8b571929123b26a0e4617bde5018977eb655b31970c297b91b63ee83bb82aeb04666880
+  languageName: node
+  linkType: hard
+
+"chart.js@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "chart.js@npm:4.4.1"
+  dependencies:
+    "@kurkle/color": "npm:^0.3.0"
+  checksum: ef0cd10118bfa66695b109cbb331be99193b19f1ac2bb7f35f8c71aa45a355f17d1c87d5fa6727a2b026ace4c7fa8ab557e9f61a9f13f1f39f58500bbd0c26d1
   languageName: node
   linkType: hard
 
@@ -1985,16 +2008,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "giftease@workspace:."
   dependencies:
+    "@faker-js/faker": "npm:^8.3.1"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
     antd: "npm:^5.12.5"
     autoprefixer: "npm:^10.0.1"
+    chart.js: "npm:^4.4.1"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.0.4"
     next: "npm:14.0.4"
     postcss: "npm:^8"
     react: "npm:^18"
+    react-chartjs-2: "npm:^5.2.0"
     react-dom: "npm:^18"
     tailwindcss: "npm:^3.3.0"
     typescript: "npm:^5"
@@ -3960,6 +3986,16 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 56bbb4002189f5a3fe8c8caa07a4a9e15c0108dc3b34e8e47fa317f3f84e554b5c1a36240bd376a49542e058c6bd79dae536b31ffb4951aca31e101f1802bf22
+  languageName: node
+  linkType: hard
+
+"react-chartjs-2@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "react-chartjs-2@npm:5.2.0"
+  peerDependencies:
+    chart.js: ^4.1.1
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 437e443a268b7eebab3f1a6f0f5d936e58caf650fca55f568a612a46c563d22af683a64185eac8005aa644e4960a5a72cc1075a2574b89ec46c7653aaf4025e2
   languageName: node
   linkType: hard
 

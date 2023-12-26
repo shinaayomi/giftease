@@ -9,6 +9,10 @@
   .app-select .ant-select-arrow {
     @apply translate-y-1/2;
   }
+
+  .app-input {
+    @apply focus-within:border-[#E0E0E0];
+  }
 }
 
 @font-face {
