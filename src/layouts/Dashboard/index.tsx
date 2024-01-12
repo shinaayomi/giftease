@@ -4,7 +4,7 @@ import {
   Complainanticon,
   CopyIcon,
   NigeriaIcon,
-  RecipientsIcon,
+  AdminIcon,
   USAIcon,
   VoucherIcon,
   WalletIcon,
@@ -124,7 +124,7 @@ export default function Dashboard() {
                 2,400
               </h1>
               <div className="w-10 h-10 grid place-items-center bg-[#F3F2FD] text-[#6563FF] rounded-[32px]">
-                <RecipientsIcon width="24px" height="24px" />
+                <AdminIcon width="24px" height="24px" />
               </div>
             </div>
           </div>

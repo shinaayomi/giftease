@@ -1,15 +1,20 @@
 import { AishaAliyu, GifteaseLogo } from "@/utils/AppImages";
 import {
+  BussinessIcon,
   DashboardIcon,
-  ExtrasIcon,
+  MarketplaceIcon,
+  LogoutIcon,
   PaycodeHistoryicon,
   PersonnelManagementIcon,
   ProfileManagementIcon,
-  RecipientsIcon,
+  AdminIcon,
   ReportsIcon,
   RightArrowIcon,
   SecuritySettingsIcon,
   SupportIcon,
+  LoyaltyCardRequestIcon,
+  AuditTrailsIcon,
+  SettingsIcon,
 } from "@/utils/icons";
 
 import type { MenuProps } from "antd";
@@ -58,22 +63,35 @@ export default function Sidebar() {
       <div className="grid gap-2 mt-5">
         {[
           { icons: <DashboardIcon />, title: "Dashboard", link: "/" },
+          { icons: <BussinessIcon />, title: "Businesses", link: "" },
           {
             icons: <PaycodeHistoryicon />,
             title: "Paycode History",
             link: "/paycode-history",
           },
           { icons: <ReportsIcon />, title: "Reports", link: "" },
+          { icons: <MarketplaceIcon />, title: "Marketplace", link: "" },
+          {
+            icons: <LoyaltyCardRequestIcon />,
+            title: (
+              <>
+                Loyalty Card request{" "}
+                <span className="w-6 h-6 inline-flex justify-center items-center bg-[#9F0A0A] text-white text-[10px] font-satoshi-medium rounded-2xl ml-3">
+                  12
+                </span>
+              </>
+            ),
+            link: "",
+          },
           { icons: <SupportIcon />, title: "Support", link: "" },
-          { icons: <RecipientsIcon />, title: "Recipients", link: "" },
-          { icons: <ExtrasIcon />, title: "Extras", link: "" },
+          { icons: <SettingsIcon />, title: "Settings", link: "" },
+          { icons: <AdminIcon />, title: "Admins", link: "" },
+          { icons: <AuditTrailsIcon />, title: "Audit Trails", link: "" },
         ].map((item, index) => (
           <Link key={index} href={item.link} passHref>
             <div
-              className={`h-14 flex items-center gap-4 px-4 py-2 rounded-lg duration-300 ${
-                path === item.link
-                  ? "bg-[#F7F6FF] text-app-purple font-satoshi-bold"
-                  : "text-white hover:bg-[rgba(255,255,255,0.1)]"
+              className={`h-14 flex items-center gap-4 text-white px-4 py-2 rounded duration-300 ${
+                path === item.link && "bg-[rgba(255,255,255,0.1)]"
               }`}
             >
               {item.icons} <span>{item.title}</span>
@@ -82,7 +100,7 @@ export default function Sidebar() {
         ))}
       </div>
 
-      <div className="mt-10 border-t border-[rgba(242,242,242,0.20)] pt-3">
+      {/* <div className="mt-10 border-t border-[rgba(242,242,242,0.20)] pt-3">
         <p className="text-[#F2F2F2] px-4 py-2">SETTINGS</p>
         <div className="grid gap-2 ">
           {[
@@ -115,10 +133,10 @@ export default function Sidebar() {
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="mt-auto">
-        <Dropdown menu={{ items }} trigger={["click"]}>
+        {/* <Dropdown menu={{ items }} trigger={["click"]}>
           <a onClick={(e) => e.preventDefault()}>
             <div className="flex items-center gap-[10px] bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.10)] px-3 py-4 rounded-[10px] cursor-pointer">
               <Image
@@ -136,7 +154,11 @@ export default function Sidebar() {
               <RightArrowIcon />
             </div>
           </a>
-        </Dropdown>
+        </Dropdown> */}
+        <button className="w-full h-14 flex justify-center items-center bg-[#F6F0F0] text-[#9F0A0A] font-satoshi-medium rounded-lg">
+          <LogoutIcon />
+          <span>Log out</span>
+        </button>
       </div>
     </aside>
   );
