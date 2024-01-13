@@ -6,6 +6,7 @@ import GTBankLogo from "../../public/assets/images/GUARANTY-Trust-Bank.png";
 import WemaBankLogo from "../../public/assets/images/Wema-Bank.png";
 import PlaceLogo from "../../public/assets/images/PlaceLogo.svg";
 import ForgotPasswordLogo from "../../public/assets/images/ForgotPasswordLogo.svg";
+import ResetPasswordLogo from "../../public/assets/images/ResetPasswordLogo.svg";
 
 export {
   GifteaseLogo,
@@ -16,4 +17,5 @@ export {
   WemaBankLogo,
   PlaceLogo,
   ForgotPasswordLogo,
+  ResetPasswordLogo,
 };
