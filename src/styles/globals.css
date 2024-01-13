@@ -7,6 +7,10 @@
     @apply p-0;
   }
 
+  .form-btn {
+    @apply h-12 md:h-14 !important;
+  }
+
   .app-select .ant-select-selector {
     @apply h-10 border-[#F2F2F2] rounded-lg !important;
   }

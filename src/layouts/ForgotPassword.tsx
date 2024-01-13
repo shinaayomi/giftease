@@ -1,11 +1,11 @@
-import { GifteaseLogo2 } from "@/utils/AppImages";
+import { ForgotPasswordLogo, GifteaseLogo2 } from "@/utils/AppImages";
 import Image from "next/image";
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Login() {
+export default function ForgotPassword() {
   const router = useRouter();
 
   const onFinish = (values: any) => {
@@ -30,12 +30,19 @@ export default function Login() {
           height={96}
           priority
         />
-        <h2 className="text-app-purple text-center text-2xl md:text-[32px] font-satoshi-bold mt-12 md:mt-16 mb-4">
-          👋 Welcome back,Admin
+        <Image
+          src={ForgotPasswordLogo}
+          alt="ForgotPasswordLogo"
+          className="mx-auto mt-12 md:mt-16"
+          width={120}
+          height={120}
+          priority
+        />
+        <h2 className="text-app-purple text-center text-2xl md:text-[32px] font-satoshi-bold mt-6 md:mt-10 mb-4">
+          Forgot Password?
         </h2>
         <p className="text-center text-[#333] text-sm md:text-base mb-8">
-          Login to your dashboard to see some transactions/activities you might
-          have missed.
+          You don’t need to worry, We will send a reset instructions
         </p>
         <div>
           <Form
@@ -52,30 +59,9 @@ export default function Login() {
               rules={[{ required: true, message: "Please enter your email!" }]}
             >
               <Input
-                className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
+                className="h-12 md:h-14 bg-[#F8F8F8] border border-[#E0E0E0] rounded-lg"
                 placeholder="E.g. john@gmail.com"
               />
-            </Form.Item>
-
-            <Form.Item<FieldType>
-              label="Password"
-              name="password"
-              rules={[
-                { required: true, message: "Please enter your password!" },
-              ]}
-            >
-              <Input.Password
-                placeholder="********"
-                className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
-              />
-            </Form.Item>
-
-            <Form.Item<FieldType> name="forgotPassword" className="mb-12">
-              <Link href="/forgot-password" passHref>
-                <span className="text-app-purple font-satoshi-bold">
-                  Forgot password?
-                </span>
-              </Link>
             </Form.Item>
 
             <Form.Item>
@@ -88,6 +74,27 @@ export default function Login() {
               </Button>
             </Form.Item>
           </Form>
+          <div className="text-center">
+            <button className="group/back inline-flex items-center gap-4 text-app-purple font-satoshi-bold mt-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="24"
+                className="group-hover/back:me-4 duration-300"
+                viewBox="0 0 25 24"
+                fill="none"
+              >
+                <path
+                  d="M5.5 12H19.5M5.5 12L11.5 6M5.5 12L11.5 18"
+                  stroke="#443792"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>Back to login page</span>
+            </button>
+          </div>
         </div>
       </section>
     </main>

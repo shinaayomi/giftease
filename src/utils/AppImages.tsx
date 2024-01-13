@@ -5,6 +5,7 @@ import Bear from "../../public/assets/images/Bear.png";
 import GTBankLogo from "../../public/assets/images/GUARANTY-Trust-Bank.png";
 import WemaBankLogo from "../../public/assets/images/Wema-Bank.png";
 import PlaceLogo from "../../public/assets/images/PlaceLogo.svg";
+import ForgotPasswordLogo from "../../public/assets/images/ForgotPasswordLogo.svg";
 
 export {
   GifteaseLogo,
@@ -14,4 +15,5 @@ export {
   GTBankLogo,
   WemaBankLogo,
   PlaceLogo,
+  ForgotPasswordLogo,
 };
