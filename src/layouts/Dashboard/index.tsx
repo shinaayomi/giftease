@@ -8,6 +8,7 @@ import {
   USAIcon,
   VoucherIcon,
   WalletIcon,
+  PlusIcon,
 } from "@/utils/icons";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -25,8 +26,28 @@ export default function Dashboard() {
   return (
     <div>
       <DashboardLayout>
+        <header className="flex md:items-center justify-between flex-col md:flex-row gap-6 mb-6">
+          <div>
+            <h5 className="text-app-purple text-xl font-satoshi-medium mb-2">
+              Good morning 🌄 Admin,
+            </h5>
+            <p className="text-[#4F4F4F]">
+              Here are the updates since you last logged in.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <button className="w-full sm:w-1/2 md:w-[172px] h-14 inline-flex justify-center items-center gap-2 text-app-purple font-satoshi-medium border border-app-purple rounded-lg">
+              <PlusIcon />
+              <span>Invite a business</span>
+            </button>
+            <button className="w-full sm:w-1/2 md:w-[172px] h-14 inline-flex justify-center items-center gap-2 bg-app-purple text-white font-satoshi-medium rounded-lg">
+              <PlusIcon />
+              <span>Add an admin</span>
+            </button>
+          </div>
+        </header>
         <section>
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Wallet balance */}
             <div className="md:col-span-2 bg-white rounded-lg p-[14px_16px_21px]">
               <p className="text-[#828282] text-xs mb-[15px]">Wallet Balance</p>
@@ -104,7 +125,7 @@ export default function Dashboard() {
               </div>
             </div>
             {/* Voucher Generated */}
-            <div className="bg-white rounded-lg p-[14px_16px_21px]">
+            <div className="md:span-1 bg-white rounded-lg p-[14px_16px_21px]">
               <p className="text-[#828282] text-xs mb-[15px]">
                 Voucher Generated
               </p>
@@ -116,7 +137,7 @@ export default function Dashboard() {
               </div>
             </div>
             {/* Recipients */}
-            <div className="bg-white rounded-lg p-[14px_16px_21px]">
+            <div className="md:span-1 bg-white rounded-lg p-[14px_16px_21px]">
               <p className="text-[#828282] text-xs mb-[15px]">
                 Voucher Generated
               </p>
@@ -131,9 +152,9 @@ export default function Dashboard() {
         </section>
 
         <section className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-            <div className="md:col-span-2">
-              <article className="bg-white rounded-lg p-[16px_24px]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+            <div className="lg:col-span-2 bg-white rounded-lg">
+              {/* <article className="bg-white rounded-lg p-[16px_24px]">
                 <p className="text-[#828282] text-sm font-satoshi-medium mb-4">
                   QUICK ACTIONS
                 </p>
@@ -157,7 +178,7 @@ export default function Dashboard() {
                     </div>
                   ))}
                 </div>
-              </article>
+              </article> */}
 
               <article className="bg-white rounded-lg p-[16px_24px] mt-2">
                 <div className="flex justify-between">

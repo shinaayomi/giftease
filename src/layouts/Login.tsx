@@ -1,7 +1,7 @@
 import { GifteaseLogo2 } from "@/utils/AppImages";
 import Image from "next/image";
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -70,12 +70,14 @@ export default function Login() {
               />
             </Form.Item>
 
-            <Form.Item<FieldType> name="forgotPassword" className="mb-12">
-              <Link href="/forgot-password" passHref>
-                <span className="text-app-purple font-satoshi-bold">
-                  Forgot password?
-                </span>
-              </Link>
+            <Form.Item<FieldType> name="forgotPassword">
+              <div className="pb-6">
+                <Link href="/forgot-password" passHref>
+                  <span className="text-app-purple font-satoshi-bold">
+                    Forgot password?
+                  </span>
+                </Link>
+              </div>
             </Form.Item>
 
             <Form.Item>

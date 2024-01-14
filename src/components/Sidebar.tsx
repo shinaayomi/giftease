@@ -62,7 +62,7 @@ export default function Sidebar() {
       </Link>
       <div className="grid gap-2 mt-5">
         {[
-          { icons: <DashboardIcon />, title: "Dashboard", link: "/" },
+          { icons: <DashboardIcon />, title: "Dashboard", link: "/dashboard" },
           { icons: <BussinessIcon />, title: "Businesses", link: "" },
           {
             icons: <PaycodeHistoryicon />,

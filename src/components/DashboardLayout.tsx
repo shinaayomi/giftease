@@ -2,8 +2,8 @@ import React, { ReactNode, useState } from "react";
 import Sidebar from "./Sidebar";
 import Image from "next/image";
 import { AishaAliyu, Bear } from "@/utils/AppImages";
-import { Bellicon, DownArrowIcon, MenuIcon } from "@/utils/icons";
-import type { MenuProps } from "antd";
+import { Bellicon, DownArrowIcon, MenuIcon, SearchIcon } from "@/utils/icons";
+import { Input, type MenuProps } from "antd";
 import dynamic from "next/dynamic";
 import MobileSidebar from "./MobileSidebar";
 const Dropdown = dynamic(async () => await import("antd/es/dropdown"), {
@@ -47,7 +47,7 @@ export default function DashboardLayout({ children }: IProps) {
       <section className="lg:ms-[320px]">
         {/* start top nav */}
         <nav className="fixed top-0 right-0 left-0 lg:left-[320px] z-10 flex justify-between items-center bg-white border-b border-[#F2F2F2] px-4 md:px-6 lg:px-11 py-3">
-          <div className="flex items-center gap-3 sm:gap-5">
+          {/* <div className="flex items-center gap-3 sm:gap-5">
             <Image
               src={Bear}
               alt="ABC"
@@ -57,6 +57,13 @@ export default function DashboardLayout({ children }: IProps) {
               priority
             />
             <span className="text-black text-lg sm:text-xl">ABC Ventures</span>
+          </div> */}
+          <div>
+            <Input
+              className="h-14 text-sm md:text-base rounded-lg border border-[#E0E0E0]"
+              placeholder="Search for business"
+              prefix={<SearchIcon />}
+            />
           </div>
 
           <div className="flex items-center gap-6">
@@ -82,7 +89,7 @@ export default function DashboardLayout({ children }: IProps) {
               </Dropdown>
             </div>
           </div>
-          <div className="block sm:hidden text-xl">
+          <div className="block lg:hidden text-xl">
             <button onClick={() => setOpen(true)}>
               <MenuIcon />
             </button>

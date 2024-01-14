@@ -51,9 +51,9 @@ export const BussinessIcon = () => {
       <path
         d="M15 14V17.6C15 18.4401 15 18.8601 14.8365 19.181C14.6927 19.4632 14.4632 19.6927 14.181 19.8365C13.8601 20 13.4401 20 12.6 20H7.40001C6.55994 20 6.1399 20 5.81903 19.8365C5.53679 19.6927 5.30731 19.4632 5.1635 19.181C5.00001 18.8601 5.00001 18.4401 5.00001 17.6V10M19 10V20M5.00001 16H15M5.55778 4.88446L3.5789 8.84223C3.38722 9.22559 3.29138 9.41727 3.3144 9.57308C3.3345 9.70914 3.40976 9.8309 3.52246 9.90973C3.65153 10 3.86583 10 4.29444 10H19.7056C20.1342 10 20.3485 10 20.4776 9.90973C20.5903 9.8309 20.6655 9.70914 20.6856 9.57308C20.7086 9.41727 20.6128 9.22559 20.4211 8.84223L18.4422 4.88446C18.2817 4.5634 18.2014 4.40287 18.0817 4.28558C17.9758 4.18187 17.8482 4.10299 17.7081 4.05465C17.5496 4 17.3701 4 17.0112 4H6.98887C6.62991 4 6.45043 4 6.29198 4.05465C6.15185 4.10299 6.02422 4.18187 5.91833 4.28558C5.79858 4.40287 5.71832 4.5634 5.55778 4.88446Z"
         stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -177,9 +177,9 @@ export const LoyaltyCardRequestIcon = () => {
       <path
         d="M3 9H21M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
         stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -222,9 +222,9 @@ export const AuditTrailsIcon = () => {
       <path
         d="M8 6.99997H4M8 12H4M8 17H4M12 2.99994V20.9999M9.2 21H16.8C17.9201 21 18.4802 21 18.908 20.782C19.2843 20.5902 19.5903 20.2843 19.782 19.908C20 19.4801 20 18.9201 20 17.8V6.19997C20 5.07987 20 4.51981 19.782 4.09199C19.5903 3.71567 19.2843 3.4097 18.908 3.21796C18.4802 2.99997 17.9201 2.99997 16.8 2.99997H9.2C8.07989 2.99997 7.51984 2.99997 7.09202 3.21796C6.71569 3.4097 6.40973 3.71567 6.21799 4.09199C6 4.51981 6 5.07987 6 6.19997V17.8C6 18.9201 6 19.4801 6.21799 19.908C6.40973 20.2843 6.71569 20.5902 7.09202 20.782C7.51984 21 8.07989 21 9.2 21Z"
         stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -325,6 +325,27 @@ export const RightArrowIcon = () => {
       <path
         d="M7.5 15L12.5 10L7.5 5"
         stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const LeftArrowicon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="24"
+      className="group-hover/back:me-4 duration-300"
+      viewBox="0 0 25 24"
+      fill="none"
+    >
+      <path
+        d="M5.5 12H19.5M5.5 12L11.5 6M5.5 12L11.5 18"
+        stroke="#443792"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -742,6 +763,26 @@ export const MenuIcon = () => {
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
       <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  );
+};
+
+export const PlusIcon = ({ color = "currentColor" }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M6 12H18M12 6V18"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 };
