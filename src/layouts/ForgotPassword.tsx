@@ -78,7 +78,7 @@ export default function ForgotPassword() {
               <Form.Item>
                 <Button
                   type="primary"
-                  className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold"
+                  className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
                   htmlType="submit"
                 >
                   Log in
