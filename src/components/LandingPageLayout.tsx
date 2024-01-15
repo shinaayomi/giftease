@@ -1,13 +1,160 @@
-import { GifteaseLogo2 } from "@/utils/AppImages";
+import { GifteaseLogo, GifteaseLogo2 } from "@/utils/AppImages";
 import {
+  CircularCloseIcon,
   FacebookIcon,
   InstagramIcon,
   LinkedinIcon,
+  MenuIcon,
   TwitterIcon,
 } from "@/utils/icons";
+import { Drawer } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import { useRouter } from "next/router";
+import React, { ReactNode, useState } from "react";
+
+export const LandingpageNavbar = () => {
+  const router = useRouter();
+  const path = router.pathname;
+
+  return (
+    <>
+      {path === "/" ? (
+        <nav className="px-4 md:px-10 lg:px-20 py-3 md:py-5">
+          <div className="container mx-auto">
+            <div className="flex justify-between md:items-center flex-col md:flex-row gap-y-16">
+              <div>
+                <Link href="/" passHref>
+                  <Image
+                    src={GifteaseLogo}
+                    alt="Giftease"
+                    width={80}
+                    height={80}
+                    priority
+                  />
+                </Link>
+              </div>
+              <div className="flex md:items-center flex-col md:flex-row gap-9">
+                <Link href="" className="text-white" passHref>
+                  Product
+                </Link>
+                <Link href="" className="text-white" passHref>
+                  Our Partners
+                </Link>
+                <Link href="" className="text-white" passHref>
+                  Marketplace
+                </Link>
+              </div>
+
+              <div className="flex md:items-center flex-col md:flex-row gap-8 md:gap-14">
+                <Link
+                  href="/login"
+                  className="text-white font-satoshi-bold"
+                  passHref
+                >
+                  Login
+                </Link>
+                <button className="w-[147px] h-[56px] bg-white text-[#10093E] font-satoshi-bold rounded-2xl">
+                  Create account
+                </button>
+              </div>
+            </div>{" "}
+          </div>
+        </nav>
+      ) : (
+        <nav className="px-4 md:px-10 lg:px-20 py-3 md:py-5">
+          <div className="container mx-auto">
+            <div className="flex justify-between md:items-center flex-col md:flex-row gap-y-16">
+              <div>
+                <Link href="/" passHref>
+                  <Image
+                    src={GifteaseLogo2}
+                    alt="Giftease"
+                    width={80}
+                    height={80}
+                    priority
+                  />
+                </Link>
+              </div>
+              <div className="flex md:items-center flex-col md:flex-row gap-9">
+                <Link href="" className="text-[#4F4F4F]" passHref>
+                  Product
+                </Link>
+                <Link href="" className="text-[#4F4F4F]" passHref>
+                  Our Partners
+                </Link>
+                <Link href="" className="text-[#4F4F4F]" passHref>
+                  Marketplace
+                </Link>
+              </div>
+
+              <div className="flex md:items-center flex-col md:flex-row gap-8 md:gap-14">
+                <Link
+                  href="/login"
+                  className="text-app-purple font-satoshi-bold"
+                  passHref
+                >
+                  Login
+                </Link>
+                <button className="w-[147px] h-[56px] bg-app-purple text-white font-satoshi-bold rounded-2xl">
+                  Create account
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      )}
+    </>
+  );
+};
+
+export const LandinPageMobileNav = () => {
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <nav className="block md:hidden px-4 md:px-10 lg:px-20 py-3 md:py-5">
+      <div className="container mx-auto">
+        <div className="flex items-center justify-between">
+          <Link href="/" passHref>
+            <Image
+              src={GifteaseLogo}
+              alt="Giftease"
+              width={64}
+              height={64}
+              priority
+            />
+          </Link>
+          <button onClick={showDrawer}>
+            <MenuIcon />
+          </button>
+        </div>
+      </div>
+      <div>
+        <Drawer
+          className="mobileDrawer"
+          placement="left"
+          onClose={onClose}
+          open={open}
+          closable={false}
+        >
+          <div className="block sm:hidden absolute top-4 right-4">
+            <button onClick={onClose}>
+              <CircularCloseIcon />
+            </button>
+          </div>
+        </Drawer>
+      </div>
+    </nav>
+  );
+};
 
 export default function LandingPageLayout({
   children,
@@ -16,6 +163,11 @@ export default function LandingPageLayout({
 }) {
   return (
     <main>
+      <div className="hidden md:block">
+        <LandingpageNavbar />
+      </div>
+      <LandinPageMobileNav />
+
       <section>{children}</section>
 
       {/* start footer */}

@@ -7,10 +7,12 @@ import WemaBankLogo from "../../public/assets/images/Wema-Bank.png";
 import PlaceLogo from "../../public/assets/images/PlaceLogo.svg";
 import ForgotPasswordLogo from "../../public/assets/images/ForgotPasswordLogo.svg";
 import ResetPasswordLogo from "../../public/assets/images/ResetPasswordLogo.svg";
+import LandingPageHeroImg from "../../public/assets/images/landing-page-hero.svg";
 
 export {
   GifteaseLogo,
   GifteaseLogo2,
+  LandingPageHeroImg,
   AishaAliyu,
   Bear,
   GTBankLogo,

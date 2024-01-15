@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main>
-      <HeadShare title="Log in" />
+      <HeadShare title="Gifease" />
       <LandingPage />
     </main>
   );
