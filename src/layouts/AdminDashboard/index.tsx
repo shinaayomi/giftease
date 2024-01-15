@@ -13,20 +13,20 @@ import {
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
-import VoucherStatisticChart from "../AdminDashboard/VoucherStatisticChart";
+import VoucherStatisticChart from "./VoucherStatisticChart";
 
 const Select = dynamic(async () => await import("antd/es/select"), {
   ssr: false,
 });
 
-export default function Dashboard() {
+export default function AdminDashboard() {
   const handleSelect = (value: unknown) => {
     console.log(`selected ${value}`);
   };
   return (
     <div>
       <DashboardLayout>
-        {/* <header className="flex md:items-center justify-between flex-col md:flex-row gap-6 mb-6">
+        <header className="flex md:items-center justify-between flex-col md:flex-row gap-6 mb-6">
           <div>
             <h5 className="text-app-purple text-xl font-satoshi-medium mb-2">
               Good morning 🌄 Admin,
@@ -45,7 +45,7 @@ export default function Dashboard() {
               <span>Add an admin</span>
             </button>
           </div>
-        </header> */}
+        </header>
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Wallet balance */}
@@ -154,7 +154,7 @@ export default function Dashboard() {
         <section className="mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
             <div className="lg:col-span-2 bg-white rounded-lg">
-              <article className="bg-white rounded-lg p-[16px_24px]">
+              {/* <article className="bg-white rounded-lg p-[16px_24px]">
                 <p className="text-[#828282] text-sm font-satoshi-medium mb-4">
                   QUICK ACTIONS
                 </p>
@@ -178,7 +178,7 @@ export default function Dashboard() {
                     </div>
                   ))}
                 </div>
-              </article>
+              </article> */}
 
               <article className="bg-white rounded-lg p-[16px_24px] mt-2">
                 <div className="flex justify-between">
