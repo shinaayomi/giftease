@@ -7,6 +7,25 @@
     @apply p-0;
   }
 
+  .testimonial-carousel .ant-carousel .slick-dots.slick-dots-bottom {
+    @apply -bottom-10;
+  }
+
+  .testimonial-carousel
+    .ant-carousel
+    .slick-dots.slick-dots-bottom
+    :is(li, button) {
+    @apply w-2 h-2 bg-[#F2F2F2] rounded-full;
+  }
+
+  .testimonial-carousel
+    .ant-carousel
+    .slick-dots.slick-dots-bottom
+    .slick-active
+    button {
+    @apply bg-app-purple;
+  }
+
   .form-btn {
     @apply h-12 md:h-14 !important;
   }

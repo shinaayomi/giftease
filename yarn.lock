@@ -2024,6 +2024,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-chartjs-2: "npm:^5.2.0"
     react-dom: "npm:^18.2.0"
+    react-fast-marquee: "npm:^1.6.2"
     tailwindcss: "npm:^3.3.0"
     typescript: "npm:^5"
   languageName: unknown
@@ -4010,6 +4011,16 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 66dfc5f93e13d0674e78ef41f92ed21dfb80f9c4ac4ac25a4b51046d41d4d2186abc915b897f69d3d0ebbffe6184e7c5876f2af26bfa956f179225d921be713a
+  languageName: node
+  linkType: hard
+
+"react-fast-marquee@npm:^1.6.2":
+  version: 1.6.2
+  resolution: "react-fast-marquee@npm:1.6.2"
+  peerDependencies:
+    react: ">= 16.8.0 || 18.0.0"
+    react-dom: ">= 16.8.0 || 18.0.0"
+  checksum: 4baddd8e81f4ca746d08f748f443cc49dc6d18cb2c4bd152e8bd5b0a74165756ad83cfd9f5ad45d553b40b6cc4ca1cd4ddbd1e904133dddaca6194ed180d8e30
   languageName: node
   linkType: hard
 
