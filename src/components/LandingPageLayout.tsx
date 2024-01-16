@@ -109,6 +109,8 @@ export const LandingpageNavbar = () => {
 };
 
 export const LandinPageMobileNav = () => {
+  const router = useRouter();
+  const path = router.pathname;
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -120,25 +122,43 @@ export const LandinPageMobileNav = () => {
   };
 
   return (
-    <nav className="block md:hidden px-4 md:px-10 lg:px-20 py-3 md:py-5">
+    <nav className="block md:hidden px-4 md:px-10 lg:px-20 py-1 md:py-5">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between">
-          <Link href="/" passHref>
-            <Image
-              src={GifteaseLogo}
-              alt="Giftease"
-              width={64}
-              height={64}
-              priority
-            />
-          </Link>
-          <button onClick={showDrawer}>
-            <MenuIcon />
-          </button>
-        </div>
+        {path === "/" ? (
+          <div className="flex items-center justify-between">
+            <Link href="/" passHref>
+              <Image
+                src={GifteaseLogo}
+                alt="Giftease"
+                width={64}
+                height={64}
+                priority
+              />
+            </Link>
+            <button onClick={showDrawer} className="bg-white rounded p-2">
+              <MenuIcon />
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center justify-between">
+            <Link href="/" passHref>
+              <Image
+                src={GifteaseLogo2}
+                alt="Giftease"
+                width={64}
+                height={64}
+                priority
+              />
+            </Link>
+            <button onClick={showDrawer}>
+              <MenuIcon />
+            </button>
+          </div>
+        )}
       </div>
       <div>
         <Drawer
+          style={{ background: path === "/" ? "#16103B" : "#ffffff" }}
           className="mobileDrawer"
           placement="left"
           onClose={onClose}
@@ -150,6 +170,7 @@ export const LandinPageMobileNav = () => {
               <CircularCloseIcon />
             </button>
           </div>
+          <LandingpageNavbar />
         </Drawer>
       </div>
     </nav>
@@ -161,12 +182,19 @@ export default function LandingPageLayout({
 }: {
   children: ReactNode;
 }) {
+  const router = useRouter();
+  const path = router.pathname;
+
   return (
     <main>
-      <div className="hidden md:block">
-        <LandingpageNavbar />
-      </div>
-      <LandinPageMobileNav />
+      {path === "/" || (
+        <>
+          <div className="hidden md:block">
+            <LandingpageNavbar />
+          </div>
+          <LandinPageMobileNav />
+        </>
+      )}
 
       <section>{children}</section>
 
