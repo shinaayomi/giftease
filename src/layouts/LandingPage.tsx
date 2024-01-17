@@ -52,7 +52,7 @@ export default function LandingPage() {
               Say goodbye to the hassle of manual voucher creation. With
               GiftEase, you can effortlessly generate and customize vouchers for
               your employees. Choose from a variety of options to create the
-              perfect rewards tailored to your team's needs.
+              perfect rewards tailored to your team&apos;s needs.
             </p>
             <div className="hidden sm:flex justify-center items-center gap-4 mb-16">
               <button className="w-[200px] h-14 bg-white text-[#10093E] rounded-2xl">
@@ -175,7 +175,7 @@ export default function LandingPage() {
                 Say goodbye to the hassle of manual voucher creation. With
                 GiftEase, you can effortlessly generate and customize vouchers
                 for your employees. Choose from a variety of options to create
-                the perfect rewards tailored to your team's needs.
+                the perfect rewards tailored to your team&apos;s needs.
               </p>
               <button className="w-full sm:w-[250px] h-14 bg-white text-app-purple text-sm md:text-base font-satoshi-bold rounded-lg">
                 Start Generating Vouchers
@@ -197,7 +197,7 @@ export default function LandingPage() {
                   <div className="max-w-[768px] mx-auto text-center">
                     <p className="text-[#333] text-xs md:text-base">
                       “Giftease has revolutionized how we appreciate our
-                      employees. The platform's ease of use, customization
+                      employees. The platform&apos;s ease of use, customization
                       options, and vast voucher selection have made it a
                       game-changer for us. Our employees love the personal
                       touch, and our HR team loves the efficiency it brings to

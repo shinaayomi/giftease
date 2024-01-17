@@ -26,7 +26,7 @@ export default function MarketingPlace() {
               Generate vouchers for any of the listed stores/brands and share
               with your employees
             </p>
-            <div className="max-w-[457px] w-full h-14 flex items-center bg-white px-4 py-2 rounded-[6px]">
+            <div className="max-w-[457px] w-full h-14 flex items-center bg-white px-1 md:px-4 py-2 rounded-[6px]">
               <Select
                 defaultValue="lucy"
                 style={{ width: 120 }}
@@ -86,7 +86,10 @@ export default function MarketingPlace() {
                   "Enjoy the very best of dining experience with mouth watering yet affordable meal options from continental cuisines to the best of local dishes",
               },
             ].map((organisation, index) => (
-              <div className="bg-white shadow-[0px_4px_16px_6px_rgba(0,0,0,0.05)] rounded-lg">
+              <div
+                key={index}
+                className="bg-white shadow-[0px_4px_16px_6px_rgba(0,0,0,0.05)] rounded-lg"
+              >
                 <Image
                   src={organisation.image}
                   alt={organisation.title}
