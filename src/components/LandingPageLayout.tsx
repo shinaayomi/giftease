@@ -41,7 +41,7 @@ export const LandingpageNavbar = () => {
                 <Link href="" className="text-white" passHref>
                   Our Partners
                 </Link>
-                <Link href="" className="text-white" passHref>
+                <Link href="/marketing-place" className="text-white" passHref>
                   Marketplace
                 </Link>
               </div>
@@ -83,7 +83,15 @@ export const LandingpageNavbar = () => {
                 <Link href="" className="text-[#4F4F4F]" passHref>
                   Our Partners
                 </Link>
-                <Link href="" className="text-[#4F4F4F]" passHref>
+                <Link
+                  href="/marketing-place"
+                  className={`pb-1 ${
+                    path === "/marketing-place"
+                      ? "text-app-purple border-b border-app-purple"
+                      : "text-[#4F4F4F]"
+                  }`}
+                  passHref
+                >
                   Marketplace
                 </Link>
               </div>

@@ -26,6 +26,9 @@ import HIWCreateAccountLogo from "../../public/assets/images/HIW-Create-Accout.p
 import HIWWalletLogo from "../../public/assets/images/HIW-wallet.png";
 import HIWVoucherLogo from "../../public/assets/images/HIW-Voucher.png";
 import Abdulrasaq from "../../public/assets/images/Abdulrazaq.png";
+import ChickenRepublicLogo from "../../public/assets/images/Chicken-Republic.png";
+import SweetSensationLogo from "../../public/assets/images/MrBig.gr_Ptolemaida.png";
+import ThePlaceLogo from "../../public/assets/images/The-Place.png";
 
 export {
   GifteaseLogo,
@@ -56,4 +59,7 @@ export {
   HIWWalletLogo,
   HIWVoucherLogo,
   Abdulrasaq,
+  ChickenRepublicLogo,
+  SweetSensationLogo,
+  ThePlaceLogo,
 };

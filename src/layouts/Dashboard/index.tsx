@@ -13,7 +13,7 @@ import {
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
-import VoucherStatisticChart from "../AdminDashboard/VoucherStatisticChart";
+import VoucherStatisticChart from "./VoucherStatisticChart";
 
 const Select = dynamic(async () => await import("antd/es/select"), {
   ssr: false,
