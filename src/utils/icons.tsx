@@ -821,12 +821,12 @@ export const InstagramIcon = () => {
           y2="7.35021"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FBE18A" />
-          <stop offset="0.21" stop-color="#FCBB45" />
-          <stop offset="0.38" stop-color="#F75274" />
-          <stop offset="0.52" stop-color="#D53692" />
-          <stop offset="0.74" stop-color="#8F39CE" />
-          <stop offset="1" stop-color="#5B4FE9" />
+          <stop stopColor="#FBE18A" />
+          <stop offset="0.21" stopColor="#FCBB45" />
+          <stop offset="0.38" stopColor="#F75274" />
+          <stop offset="0.52" stopColor="#D53692" />
+          <stop offset="0.74" stopColor="#8F39CE" />
+          <stop offset="1" stopColor="#5B4FE9" />
         </linearGradient>
         <clipPath id="clip0_247_3412">
           <rect width="32" height="32" rx="16" fill="white" />

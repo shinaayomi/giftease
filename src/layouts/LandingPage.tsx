@@ -165,7 +165,7 @@ export default function LandingPage() {
 
       <section className="px-4 md:px-10">
         <div className="container mx-auto">
-          <div className="bg-[url('/assets/images/simple-fast-bg.png')] bg-[length:100%_100%] bg-no-repeat pt-6 md:pt-12 pb-10 md:pb-14 px-4 md:px-10">
+          <div className="bg-[url('/assets/images/simple-fast-bg.png')] bg-[length:100%_100%] bg-no-repeat pt-6 md:pt-12 pb-10 md:pb-14 px-4 md:px-10 rounded-lg">
             <div className="max-w-[722px] mx-auto text-center">
               <h1 className="text-white text-lg md:text-[40px] font-satoshi-bold ">
                 SIMPLE<span className="text-[#FFD771]">.</span> FAST

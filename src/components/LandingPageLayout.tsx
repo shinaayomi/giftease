@@ -158,7 +158,7 @@ export const LandinPageMobileNav = () => {
                 priority
               />
             </Link>
-            <button onClick={showDrawer}>
+            <button className="bg-[#F4F6FF] rounded p-2" onClick={showDrawer}>
               <MenuIcon />
             </button>
           </div>

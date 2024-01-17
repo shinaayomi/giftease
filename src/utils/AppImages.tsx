@@ -29,6 +29,7 @@ import Abdulrasaq from "../../public/assets/images/Abdulrazaq.png";
 import ChickenRepublicLogo from "../../public/assets/images/Chicken-Republic.png";
 import SweetSensationLogo from "../../public/assets/images/MrBig.gr_Ptolemaida.png";
 import ThePlaceLogo from "../../public/assets/images/The-Place.png";
+import QRCode from "../../public/assets/images/QR-Code.png";
 
 export {
   GifteaseLogo,
@@ -62,4 +63,5 @@ export {
   ChickenRepublicLogo,
   SweetSensationLogo,
   ThePlaceLogo,
+  QRCode,
 };

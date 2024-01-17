@@ -7,6 +7,7 @@ import {
 import { SearchIcon } from "@/utils/icons";
 import { Input, Select } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function MarketingPlace() {
@@ -86,30 +87,33 @@ export default function MarketingPlace() {
                   "Enjoy the very best of dining experience with mouth watering yet affordable meal options from continental cuisines to the best of local dishes",
               },
             ].map((organisation, index) => (
-              <div
+              <Link
                 key={index}
-                className="bg-white shadow-[0px_4px_16px_6px_rgba(0,0,0,0.05)] rounded-lg"
+                href={`/marketing-place/${organisation.title}`}
+                passHref
               >
-                <Image
-                  src={organisation.image}
-                  alt={organisation.title}
-                  className="w-full rounded-t-lg"
-                  width={412}
-                  height={262}
-                  priority
-                />
-                <div className="p-4 md:p-6 mt06">
-                  <p className="text-[#4F4F4F] text-xl font-satoshi-medium">
-                    {organisation.title}
-                  </p>
-                  <p className="text-[#4F4F4F] mt-2 mb-3">
-                    {organisation.content}
-                  </p>
-                  <span className="bg-[#EAFFEA] text-[#008000] text-xs p-[4px_8px] rounded-[2px]">
-                    Restaurant
-                  </span>
+                <div className="bg-white shadow-[0px_4px_16px_6px_rgba(0,0,0,0.05)] rounded-lg">
+                  <Image
+                    src={organisation.image}
+                    alt={organisation.title}
+                    className="w-full rounded-t-lg"
+                    width={412}
+                    height={262}
+                    priority
+                  />
+                  <div className="p-4 md:p-6 mt06">
+                    <p className="text-[#4F4F4F] text-xl font-satoshi-medium">
+                      {organisation.title}
+                    </p>
+                    <p className="text-[#4F4F4F] mt-2 mb-3">
+                      {organisation.content}
+                    </p>
+                    <span className="bg-[#EAFFEA] text-[#008000] text-xs p-[4px_8px] rounded-[2px]">
+                      Restaurant
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
