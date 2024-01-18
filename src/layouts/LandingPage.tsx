@@ -54,11 +54,11 @@ export default function LandingPage() {
               your employees. Choose from a variety of options to create the
               perfect rewards tailored to your team&apos;s needs.
             </p>
-            <div className="hidden sm:flex justify-center items-center gap-4 mb-16">
-              <button className="w-[200px] h-14 bg-white text-[#10093E] rounded-2xl">
+            <div className="flex justify-center items-center gap-3 md:gap-4 mb-9 md:mb-16">
+              <button className="w-1/2 sm:w-[200px] h-14 bg-white text-[#10093E] rounded-2xl">
                 Get Started
               </button>
-              <button className="w-[200px] h-14 text-white border border-white rounded-2xl">
+              <button className="w-1/2 sm:w-[200px] h-14 text-white border border-white rounded-2xl whitespace-nowrap">
                 Explore marketplace
               </button>
             </div>
@@ -74,7 +74,7 @@ export default function LandingPage() {
         </section>
       </header>
 
-      <section className="bg-[#F8F8F8] sm:pt-10 sm:pb-16 py-6">
+      <section className="bg-[#F8F8F8] sm:pt-10 sm:pb-16 py-6" id="ourPartners">
         <div className="container mx-auto px-4 md:px-10">
           <h5 className="text-app-purple text-center text-base sm:text-xl font-satoshi-bold mb-4 md:mb-8">
             WE ARE TRUSTED BY
@@ -190,7 +190,7 @@ export default function LandingPage() {
           <h1 className="text-app-purple text-center text-lg md:text-[40px] font-satoshi-bold mb-5 md:mb-8">
             Don’t take our word for it. Trust our customers
           </h1>
-          <div className="relative testimonial-carousel">
+          <div className="relative testimonial-carousel pb-12">
             <Carousel ref={slider} autoplay>
               {Array.from({ length: 3 }).map((_, index) => (
                 <div key={index}>

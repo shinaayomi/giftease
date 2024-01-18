@@ -29,15 +29,20 @@ export default function MarketingPlace() {
             </p>
             <div className="max-w-[457px] w-full h-14 flex items-center bg-white px-1 md:px-4 py-2 rounded-[6px]">
               <Select
-                defaultValue="lucy"
+                defaultValue="All Categories"
                 style={{ width: 120 }}
                 variant="borderless"
                 onChange={handleSelect}
                 options={[
-                  { value: "all", label: "All stores" },
-                  { value: "lucy", label: "Lucy" },
-                  { value: "Yiminghe", label: "yiminghe" },
-                  { value: "disabled", label: "Disabled", disabled: true },
+                  { value: "all", label: "All Categories" },
+                  { value: "groceries", label: "Groceries" },
+                  { value: "pharmacy", label: "Pharmacy" },
+                  { value: "SPA", label: "SPA" },
+                  { value: "restaurants", label: "Restaurants" },
+                  { value: "eateries", label: "Eateries" },
+                  { value: "superMarkets", label: "Super Markets" },
+                  { value: "spots", label: "Spots & Joints" },
+                  { value: "gyms", label: "Gyms" },
                 ]}
               />
               <span className="text-[#BDBDBD]">|</span>

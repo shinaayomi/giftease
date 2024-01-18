@@ -97,6 +97,9 @@
   src: url(/assets/fonts/Satoshi-Black.otf);
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: Satoshi;
 }
