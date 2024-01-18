@@ -86,7 +86,8 @@ export const LandingpageNavbar = () => {
                 <Link
                   href="/marketing-place"
                   className={`pb-1 ${
-                    path === "/marketing-place"
+                    path === "/marketing-place" ||
+                    path === "/marketing-place/[marketplaceId]"
                       ? "text-app-purple border-b border-app-purple"
                       : "text-[#4F4F4F]"
                   }`}

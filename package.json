@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.18.2",
     "@faker-js/faker": "^8.3.1",
     "antd": "^5.13.1",
     "chart.js": "^4.4.1",
@@ -17,7 +16,8 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-fast-marquee": "^1.6.2"
+    "react-fast-marquee": "^1.6.2",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@types/node": "^20",
