@@ -55,7 +55,10 @@ export const LandingpageNavbar = () => {
                 >
                   Login
                 </Link>
-                <button className="w-[147px] h-[56px] bg-white text-[#10093E] font-satoshi-bold rounded-2xl">
+                <button
+                  onClick={() => router.push("/create-account")}
+                  className="w-[147px] h-[56px] bg-white text-[#10093E] font-satoshi-bold rounded-2xl"
+                >
                   Create account
                 </button>
               </div>
@@ -119,7 +122,10 @@ export const LandingpageNavbar = () => {
                 >
                   Login
                 </Link>
-                <button className="w-[147px] h-[56px] bg-app-purple text-white font-satoshi-bold rounded-2xl">
+                <button
+                  onClick={() => router.push("/create-account")}
+                  className="w-[147px] h-[56px] bg-app-purple text-white font-satoshi-bold rounded-2xl"
+                >
                   Create account
                 </button>
               </div>
@@ -294,7 +300,7 @@ export default function LandingPageLayout({
                 </Link>
               </div>
               <div className="flex flex-col gap-1">
-                <Link href="" passHref>
+                <Link href="/create-account" passHref>
                   <div className="text-[#4F4F4F]">Create account</div>
                 </Link>
                 <Link href="/login" passHref>
