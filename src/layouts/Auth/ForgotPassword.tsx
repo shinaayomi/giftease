@@ -27,6 +27,7 @@ export default function ForgotPassword() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   return (
     <>
       <main className="min-h-screen grid place-items-center px-4 py-5">
@@ -86,7 +87,10 @@ export default function ForgotPassword() {
               </Form.Item>
             </Form>
             <div className="text-center">
-              <button className="group/back inline-flex items-center gap-4 text-app-purple font-satoshi-bold mt-2">
+              <button
+                onClick={() => router.push("/login")}
+                className="group/back inline-flex items-center gap-4 text-app-purple font-satoshi-bold mt-2"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"

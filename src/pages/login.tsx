@@ -1,5 +1,5 @@
 import HeadShare from "@/components/HeadShare";
-import Login from "@/layouts/Login";
+import Login from "@/layouts/Auth/Login";
 import React from "react";
 
 function login() {

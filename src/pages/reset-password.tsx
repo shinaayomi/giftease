@@ -1,6 +1,6 @@
 import HeadShare from "@/components/HeadShare";
 
-import ResetPassword from "@/layouts/ResetPassword";
+import ResetPassword from "@/layouts/Auth/ResetPassword";
 import React from "react";
 
 export default function forgotPassword() {

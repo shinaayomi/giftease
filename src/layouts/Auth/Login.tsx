@@ -33,7 +33,7 @@ export default function Login() {
             priority
           />
           <h2 className="text-app-purple text-center text-2xl md:text-[32px] font-satoshi-bold mt-12 md:mt-16 mb-4">
-            👋 Welcome back,Admin
+            👋 Welcome back, Admin
           </h2>
           <p className="text-center text-[#333] text-sm md:text-base mb-8">
             Login to your dashboard to see some transactions/activities you
@@ -94,7 +94,7 @@ export default function Login() {
                 </Button>
               </Form.Item>
             </Form>
-            <div className="text-center mt-8">
+            <div className="text-center mt-8 pb-5">
               <p className="text-[#828282]">
                 Don’t have an account?{" "}
                 <Link
