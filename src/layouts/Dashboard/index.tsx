@@ -14,6 +14,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
 import VoucherStatisticChart from "./VoucherStatisticChart";
+import DashboardTransactionTable from "./DashboardTransactionTable";
 
 const Select = dynamic(async () => await import("antd/es/select"), {
   ssr: false,
@@ -153,7 +154,7 @@ export default function Dashboard() {
 
         <section className="mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <div className="lg:col-span-2 bg-white rounded-lg">
+            <div className="lg:col-span-2">
               <article className="bg-white rounded-lg p-[16px_24px]">
                 <p className="text-[#828282] text-sm font-satoshi-medium mb-4">
                   QUICK ACTIONS
@@ -180,8 +181,8 @@ export default function Dashboard() {
                 </div>
               </article>
 
-              <article className="bg-white rounded-lg p-[16px_24px] mt-2">
-                <div className="flex justify-between">
+              <article className="bg-white rounded-lg mt-2 overflow-x-scroll">
+                {/* <div className="flex justify-between">
                   <p className="text-black text-xs">VOUCHER STATISTICS</p>
                   <div className="app-select">
                     <Select
@@ -203,8 +204,9 @@ export default function Dashboard() {
                       ]}
                     />
                   </div>
-                </div>
-                <VoucherStatisticChart />
+                </div> */}
+                {/* <VoucherStatisticChart /> */}
+                <DashboardTransactionTable />
               </article>
             </div>
 

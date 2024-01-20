@@ -30,7 +30,7 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: "PayCode ID",
     dataIndex: "paycodeId",
     key: "paycodeId",
-    render: (text) => <a>{text}</a>,
+    render: (text) => <span>{text}</span>,
   },
   {
     title: "Beneficiary",
@@ -63,20 +63,7 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: "Status",
     key: "status",
     dataIndex: "status",
-    render: (status) => {
-      let color = "#828282";
-      let bg = "#F2F2F2";
-      if (status === "Active") {
-        color = "#008000";
-        bg = "#F0F8F0";
-      } else if (status === "Expired") {
-        color = "#EB5757";
-        bg = "#FBF1F1";
-      } else {
-        color = "#828282";
-        bg = "#F2F2F2";
-      }
-
+    render: (status: string) => {
       return (
         <div
           className={`w-[108px] h-[35px] flex items-center justify-center gap-2 text-sm rounded-lg ${
