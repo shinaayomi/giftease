@@ -14,7 +14,7 @@ export default function MobileSidebar({ open, onClose }: any) {
       open={open}
       closable={false}
     >
-      <div className="block sm:hidden absolute top-4 right-4">
+      <div className="block lg:hidden absolute top-4 right-4">
         <button onClick={onClose}>
           <CircularCloseIcon />
         </button>

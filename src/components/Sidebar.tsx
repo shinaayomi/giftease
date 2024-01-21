@@ -74,7 +74,11 @@ export default function Sidebar() {
               title: "Paycode History",
               link: "/paycode-history",
             },
-            { icons: <ReportsIcon />, title: "Reports", link: "" },
+            {
+              icons: <ReportsIcon />,
+              title: "Transaction History",
+              link: "/transaction-history",
+            },
             { icons: <SupportIcon />, title: "Support", link: "" },
             { icons: <AdminIcon />, title: "Recipients", link: "" },
             { icons: <MarketplaceIcon />, title: "Extras", link: "" },
