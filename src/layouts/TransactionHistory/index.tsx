@@ -2,6 +2,7 @@ import DashboardLayout from "@/components/DashboardLayout";
 import { SearchIcon, ShareIcon } from "@/utils/icons";
 import { Input } from "antd";
 import React from "react";
+import TransactionHistoryTable from "./TransactionHistoryTable";
 
 export default function TransactionHistory() {
   return (
@@ -27,7 +28,9 @@ export default function TransactionHistory() {
           </button>
         </div>
       </header>
-      <section> </section>
+      <section className="mt-10">
+        <TransactionHistoryTable />
+      </section>
     </DashboardLayout>
   );
 }
