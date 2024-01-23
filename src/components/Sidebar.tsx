@@ -79,7 +79,7 @@ export default function Sidebar() {
               title: "Transaction History",
               link: "/transaction-history",
             },
-            { icons: <SupportIcon />, title: "Support", link: "" },
+            { icons: <SupportIcon />, title: "Support", link: "/support" },
             { icons: <AdminIcon />, title: "Recipients", link: "" },
             { icons: <MarketplaceIcon />, title: "Extras", link: "" },
           ].map((item, index) => (

@@ -52,10 +52,14 @@ export default function Dashboard() {
             {/* Wallet balance */}
             <div className="md:col-span-2 bg-white rounded-lg p-[14px_16px_21px]">
               <p className="text-[#828282] text-xs mb-[15px]">Wallet Balance</p>
-              <h1 className="text-[#4F4F4F] text-2xl lg:text-[32px] font-satoshi-black mb-1">
+              <h1 className="text-[#4F4F4F] text-2xl lg:text-[32px] font-satoshi-black mb-2">
                 ₦5,000,000,000
               </h1>
-              <div className="app-select">
+              <button className="flex items-center gap-2 h-10 border border-[#F2F2F2] rounded-lg px-2">
+                <NigeriaIcon />
+                <span className="text-[#9B9B9B] text-xs">Naira Wallet</span>
+              </button>
+              {/* <div className="app-select">
                 <Select
                   defaultValue="naira"
                   onChange={handleSelect}
@@ -84,17 +88,19 @@ export default function Dashboard() {
                     },
                   ]}
                 />
-              </div>
+              </div> */}
             </div>
             {/* Total amount spent */}
             <div className="md:col-span-2 bg-white rounded-lg p-[14px_16px_21px]">
-              <p className="text-[#828282] text-xs mb-[15px]">
-                Total amount spent
-              </p>
-              <h1 className="text-[#4F4F4F] text-2xl lg:text-[32px] font-satoshi-black mb-1">
-                ₦5,000,000,000
+              <p className="text-[#828282] text-xs mb-[15px]">Wallet Balance</p>
+              <h1 className="text-[#4F4F4F] text-2xl lg:text-[32px] font-satoshi-black mb-2">
+                $5,000,000,000
               </h1>
-              <div className="app-select">
+              <button className="flex items-center gap-2 h-10 border border-[#F2F2F2] rounded-lg px-2">
+                <USAIcon />{" "}
+                <span className="text-[#9B9B9B] text-xs">US Dollars</span>
+              </button>
+              {/* <div className="app-select">
                 <Select
                   defaultValue="dollar"
                   onChange={handleSelect}
@@ -123,7 +129,7 @@ export default function Dashboard() {
                     },
                   ]}
                 />
-              </div>
+              </div> */}
             </div>
             {/* Voucher Generated */}
             <div className="md:span-1 bg-white rounded-lg p-[14px_16px_21px]">
@@ -152,7 +158,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <section className="mt-6">
+        <section className="mt-2">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
             <div className="lg:col-span-2">
               <article className="bg-white rounded-lg p-[16px_24px]">
@@ -166,7 +172,7 @@ export default function Dashboard() {
                       icon: <VoucherIcon width="40px" height="40px" />,
                       title: "Send Voucher",
                     },
-                    { icon: <Complainanticon />, title: "Raise a complaint" },
+                    { icon: <Complainanticon />, title: "Raise a Complaint" },
                   ].map((item, index) => (
                     <div
                       key={index}

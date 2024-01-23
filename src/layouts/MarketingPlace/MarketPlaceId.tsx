@@ -64,9 +64,9 @@ export default function MarketPlaceId() {
                 <button className="w-full sm:w-[233px] h-12 sm:h-14 bg-app-purple text-sm md:text-xl text-white font-satoshi-medium rounded-lg">
                   Generate Voucher
                 </button>
-                <button className="w-full sm:w-[260px] h-12 sm:h-14 text-app-purple text-sm md:text-xl font-satoshi-medium border border-app-purple rounded-lg">
+                {/* <button className="w-full sm:w-[260px] h-12 sm:h-14 text-app-purple text-sm md:text-xl font-satoshi-medium border border-app-purple rounded-lg">
                   Request for a Loyalty card
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="lg:col-span-2">

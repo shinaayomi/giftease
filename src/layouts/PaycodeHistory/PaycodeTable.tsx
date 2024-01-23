@@ -3,6 +3,8 @@ import React from "react";
 import type { ColumnsType } from "antd/es/table";
 import { AnyObject } from "antd/es/_util/type";
 import { DotMenuIcon } from "@/utils/icons";
+import type { MenuProps } from "antd";
+import { Dropdown } from "antd";
 const Table = dynamic(async () => await import("antd/es/table"), {
   ssr: false,
 });
@@ -20,7 +22,7 @@ interface DataType {
   amtGenerated: number;
   amtRamaining: number;
   dateCreated: string;
-  token: string;
+  dateExpired: string;
   status: string;
   action: string;
 }
@@ -55,9 +57,9 @@ const columns: ColumnsType<AnyObject> | undefined = [
     dataIndex: "dateCreated",
   },
   {
-    title: "Token",
-    key: "token",
-    dataIndex: "token",
+    title: "Date Expired",
+    key: "dateExpired",
+    dataIndex: "dateExpired",
   },
   {
     title: "Status",
@@ -92,11 +94,33 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: " ",
     key: "action",
     width: 60,
-    render: (_, record) => (
-      <button>
-        <DotMenuIcon />
-      </button>
-    ),
+    render: (_, record) => {
+      const items: MenuProps["items"] = [
+        {
+          label: <a href="">View</a>,
+          key: "0",
+        },
+        {
+          label: <a href="">2nd menu item</a>,
+          key: "1",
+        },
+        {
+          type: "divider",
+        },
+        {
+          label: "3rd menu item",
+          key: "3",
+        },
+      ];
+
+      return (
+        <Dropdown menu={{ items }} trigger={["click"]}>
+          <button>
+            <DotMenuIcon />
+          </button>
+        </Dropdown>
+      );
+    },
   },
 ];
 export default function PaycodeTable() {
@@ -108,7 +132,7 @@ export default function PaycodeTable() {
       amtGenerated: 56000,
       amtRamaining: 3455,
       dateCreated: "26/12/2023",
-      token: "5869696",
+      dateExpired: "26/12/2024",
       status: "Active",
       action: "",
     },
@@ -120,7 +144,7 @@ export default function PaycodeTable() {
       amtGenerated: 54000,
       amtRamaining: 4667,
       dateCreated: "26/12/2023",
-      token: "5869696",
+      dateExpired: "26/12/2024",
       status: "Used",
       action: "",
     },
@@ -131,7 +155,7 @@ export default function PaycodeTable() {
       amtGenerated: 23454,
       amtRamaining: 34578655,
       dateCreated: "26/12/2023",
-      token: "5869696",
+      dateExpired: "26/12/2024",
       status: "Expired",
       action: "",
     },

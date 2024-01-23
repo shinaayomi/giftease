@@ -17,18 +17,18 @@ interface DataType {
 
 const columns: ColumnsType<AnyObject> | undefined = [
   {
-    title: "Transaction ID",
+    title: "Ticket ID",
     dataIndex: "transactionId",
     key: "transactionId",
     render: (text) => <span>{text}</span>,
   },
   {
-    title: "Description",
+    title: "Subject",
     dataIndex: "description",
     key: "description",
   },
   {
-    title: "Amount",
+    title: "Handled by",
     dataIndex: "amount",
     key: "amount",
     render: (price) => <>₦{price}</>,
@@ -106,7 +106,7 @@ const columns: ColumnsType<AnyObject> | undefined = [
   },
 ];
 
-export default function TransactionHistoryTable() {
+export default function SupportTable() {
   const data: DataType[] = [
     {
       key: "1",

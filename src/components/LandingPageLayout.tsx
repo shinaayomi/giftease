@@ -312,7 +312,7 @@ export default function LandingPageLayout({
               </div>
             </div>
 
-            <div className="flex gap-5">
+            <div className="flex justify-center gap-5">
               <Link
                 href="https://www.facebook.com/wallx.africa"
                 target="_blank"
