@@ -80,8 +80,8 @@ export default function Sidebar() {
               link: "/transaction-history",
             },
             { icons: <SupportIcon />, title: "Support", link: "/support" },
-            { icons: <AdminIcon />, title: "Recipients", link: "" },
-            { icons: <MarketplaceIcon />, title: "Extras", link: "" },
+            { icons: <AdminIcon />, title: "Recipients", link: "/recipients" },
+            { icons: <MarketplaceIcon />, title: "Extras", link: "/extras" },
           ].map((item, index) => (
             <Link key={index} href={item.link} passHref>
               <div
