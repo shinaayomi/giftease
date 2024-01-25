@@ -152,7 +152,7 @@ export default function Sidebar() {
               </div>
             </a>
           </Dropdown> */}
-          <button className="w-full h-14 flex justify-center items-center bg-[#FEE] text-[#9F0A0A] font-satoshi-medium rounded-lg">
+          <button className="w-full h-14 flex justify-center items-center gap-4 bg-[#FEE] text-[#9F0A0A] font-satoshi-medium rounded-lg">
             <LogoutIcon />
             <span>Log out</span>
           </button>

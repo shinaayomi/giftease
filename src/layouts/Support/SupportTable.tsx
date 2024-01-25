@@ -4,59 +4,56 @@ import type { MenuProps } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { AnyObject } from "antd/es/_util/type";
 import React from "react";
+import Image from "next/image";
+import { AishaAliyu } from "@/utils/AppImages";
 
 interface DataType {
   key: string;
-  transactionId: string;
-  description: string;
-  amount: number;
-  date: number;
-  transactionType: string;
+  ticketId: string;
+  subject: string;
+  handledBy: string;
+  dateCreated: string;
   status: string;
 }
 
 const columns: ColumnsType<AnyObject> | undefined = [
   {
     title: "Ticket ID",
-    dataIndex: "transactionId",
-    key: "transactionId",
+    dataIndex: "ticketId",
+    key: "ticketId",
     render: (text) => <span>{text}</span>,
   },
   {
     title: "Subject",
-    dataIndex: "description",
-    key: "description",
+    dataIndex: "subject",
+    key: "subject",
   },
   {
     title: "Handled by",
-    dataIndex: "amount",
-    key: "amount",
-    render: (price) => <>₦{price}</>,
+    dataIndex: "handledBy",
+    key: "handledBy",
+    render: (handled) => (
+      <div className="flex items-center gap-2">
+        {" "}
+        <Image
+          src={AishaAliyu}
+          alt={handled}
+          className="rounded-full"
+          width={24}
+          height={24}
+          priority
+        />{" "}
+        {handled}
+      </div>
+    ),
   },
   {
-    title: "Date",
-    key: "date",
-    dataIndex: "date",
-    render: (price) => <>₦{price}</>,
+    title: "Date Created",
+    key: "dateCreated",
+    dataIndex: "dateCreated",
+    render: (date) => <>{date}</>,
   },
-  {
-    title: "Transaction Type",
-    dataIndex: "transactionType",
-    key: "transactionType",
-    render: (transType: string) => {
-      return (
-        <div
-          className={`w-[108px] h-[35px] flex items-center justify-center gap-2 text-sm rounded-lg border ${
-            transType === "Wallet top-up"
-              ? "bg-[#F0F8F0] text-[#008000] border-[#008000]"
-              : "bg-[#EFEDFF] text-app-purple border-app-purple"
-          }`}
-        >
-          {transType}
-        </div>
-      );
-    },
-  },
+
   {
     title: "Status",
     key: "status",
@@ -64,11 +61,11 @@ const columns: ColumnsType<AnyObject> | undefined = [
     render: (status: string) => {
       return (
         <div
-          className={`text-sm ${
-            status === "Successful" ? "text-[#008000]" : "text-[#AE0D16]"
+          className={`w-[108px] h-[35px] flex justify-center items-center rounded-lg text-sm ${
+            status === "Done" ? "text-[#008000] bg-[#F0F8F0]" : "text-[#AE0D16]"
           }`}
         >
-          {status}
+          ● {status}
         </div>
       );
     },
@@ -110,30 +107,27 @@ export default function SupportTable() {
   const data: DataType[] = [
     {
       key: "1",
-      transactionId: "657754U4I9647",
-      description: "Wallet top up Payment made from Flutterwave",
-      amount: 56000,
-      date: 3455,
-      transactionType: "Wallet top-up",
-      status: "Successful",
+      ticketId: "657754U4I9647",
+      subject: "Wallet top up Payment made from Flutterwave",
+      handledBy: "Samuel A.",
+      dateCreated: "24/06/22 12:30pm",
+      status: "Done",
     },
     {
       key: "2",
-      transactionId: "efzteteu8648j904848..",
-      description: "Voucher generated for The Place",
-      amount: 54000,
-      date: 4667,
-      transactionType: "Voucher gen.",
+      ticketId: "efzteteu8648j904848..",
+      subject: "Voucher generated for The Place",
+      handledBy: "Samuel A.",
+      dateCreated: "24/06/22 12:30pm",
       status: "Failed",
     },
     {
       key: "3",
-      transactionId: "efzteteu8648j904848..",
-      description: "Wallet top up Payment made from Flutterwave",
-      amount: 23454,
-      date: 34578655,
-      transactionType: "Wallet top-up",
-      status: "Successful",
+      ticketId: "efzteteu8648j904848..",
+      subject: "Wallet top up Payment made from Flutterwave",
+      handledBy: "Samuel A.",
+      dateCreated: "24/06/22 12:30pm",
+      status: "Done",
     },
   ];
 

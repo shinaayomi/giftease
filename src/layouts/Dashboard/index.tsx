@@ -12,15 +12,22 @@ import {
 } from "@/utils/icons";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import VoucherStatisticChart from "./VoucherStatisticChart";
 import DashboardTransactionTable from "./DashboardTransactionTable";
+import FundWalletrModal from "./FundWalletModal";
+import SendVoucherModal from "../PaycodeHistory/SendVoucherModal";
+import RaiseComplaintModal from "./RaiseComplaintModal";
 
 const Select = dynamic(async () => await import("antd/es/select"), {
   ssr: false,
 });
 
 export default function Dashboard() {
+  const [fundWalletModal, setFundWalletModal] = useState(false);
+  const [sendVoucherModal, setSendVoucherModal] = useState(false);
+  const [raiseComplaintModal, setRaiseComplaintModal] = useState(false);
+
   const handleSelect = (value: unknown) => {
     console.log(`selected ${value}`);
   };
@@ -167,22 +174,32 @@ export default function Dashboard() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-[14px]">
                   {[
-                    { icon: <WalletIcon />, title: "Fund Wallet" },
+                    {
+                      icon: <WalletIcon />,
+                      title: "Fund Wallet",
+                      onClick: () => setFundWalletModal(true),
+                    },
                     {
                       icon: <VoucherIcon width="40px" height="40px" />,
                       title: "Send Voucher",
+                      onClick: () => setSendVoucherModal(true),
                     },
-                    { icon: <Complainanticon />, title: "Raise a Complaint" },
+                    {
+                      icon: <Complainanticon />,
+                      title: "Raise a Complaint",
+                      onClick: () => setRaiseComplaintModal(true),
+                    },
                   ].map((item, index) => (
-                    <div
+                    <button
                       key={index}
+                      onClick={item.onClick}
                       className="flex flex-col  items-center gap-[10px] bg-white border border-[#F2F2F2] rounded-lg p-[17px_15px]"
                     >
                       {item.icon}
                       <p className="text-[#828282] text-sm font-satoshi-medium">
                         {item.title}
                       </p>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </article>
@@ -292,6 +309,22 @@ export default function Dashboard() {
             </div>
           </div>
         </section>
+
+        <FundWalletrModal
+          open={fundWalletModal}
+          onOk={() => setFundWalletModal(false)}
+          onCancel={() => setFundWalletModal(false)}
+        />
+        <SendVoucherModal
+          open={sendVoucherModal}
+          onOk={() => setSendVoucherModal(false)}
+          onCancel={() => setSendVoucherModal(false)}
+        />
+        <RaiseComplaintModal
+          open={raiseComplaintModal}
+          onOk={() => setRaiseComplaintModal(false)}
+          onCancel={() => setRaiseComplaintModal(false)}
+        />
       </DashboardLayout>
     </div>
   );

@@ -10,7 +10,7 @@ interface DataType {
   transactionId: string;
   description: string;
   amount: number;
-  date: number;
+  date: string;
   transactionType: string;
   status: string;
 }
@@ -113,7 +113,7 @@ export default function TransactionHistoryTable() {
       transactionId: "657754U4I9647",
       description: "Wallet top up Payment made from Flutterwave",
       amount: 56000,
-      date: 3455,
+      date: "26/01/2024",
       transactionType: "Wallet top-up",
       status: "Successful",
     },
@@ -122,7 +122,7 @@ export default function TransactionHistoryTable() {
       transactionId: "efzteteu8648j904848..",
       description: "Voucher generated for The Place",
       amount: 54000,
-      date: 4667,
+      date: "26/01/2024",
       transactionType: "Voucher gen.",
       status: "Failed",
     },
@@ -131,7 +131,7 @@ export default function TransactionHistoryTable() {
       transactionId: "efzteteu8648j904848..",
       description: "Wallet top up Payment made from Flutterwave",
       amount: 23454,
-      date: 34578655,
+      date: "26/01/2024",
       transactionType: "Wallet top-up",
       status: "Successful",
     },

@@ -142,9 +142,9 @@ export default function SendVoucherModal({ open, onOk, onCancel }: any) {
             <label className="inline-block text-[#828282] text-sm mt-3 mb-6">
               Create a security word to protect your vouchers
             </label>
-            <div className="flex items-center gap-[6px]">
+            <div className="flex items-center gap-[6px] text-[#9F0A0A]">
               <WarningIcon />
-              <span className="text-[#9F0A0A] text-sm">
+              <span className="text-sm">
                 You will be charged 0.2% per Voucher
               </span>
             </div>
