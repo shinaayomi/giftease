@@ -104,17 +104,17 @@ export default function Sidebar() {
               {
                 icons: <ProfileManagementIcon />,
                 title: "Profile Management",
-                link: "",
+                link: "/profile-management",
               },
               {
                 icons: <AdminIcon />,
                 title: "Personnel Management",
-                link: "",
+                link: "/personnel-management",
               },
               {
                 icons: <SecuritySettingsIcon />,
                 title: "Security Settings",
-                link: "",
+                link: "/security-settings",
               },
             ].map((item, index) => (
               <Link key={index} href={item.link} passHref>

@@ -12,7 +12,7 @@ export default function ExtrasId() {
       <section className="mt-6  md:pb-28">
         <header className="flex justify-between items-center flex-col md:flex-row gap-5 mb-8 ">
           <div className="text-[#828282] text-sm">
-            Marketplace/
+            Merchant/
             <span className="text-black">{ids} Restaurant</span>
           </div>
           <div className="w-full sm:w-fit flex items-center flex-col sm:flex-row gap-2">
