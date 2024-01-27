@@ -4,6 +4,7 @@ import type { MenuProps } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { AnyObject } from "antd/es/_util/type";
 import React from "react";
+import Link from "next/link";
 
 interface DataType {
   key: string;
@@ -28,7 +29,7 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: "Mobile Phone",
     dataIndex: "mobilePhone",
     key: "mobilePhone",
-    render: (price) => <>₦{price}</>,
+    render: (phone) => <>{phone}</>,
   },
 
   {
@@ -38,11 +39,15 @@ const columns: ColumnsType<AnyObject> | undefined = [
     render: () => {
       const items: MenuProps["items"] = [
         {
-          label: <a href="">View</a>,
+          label: (
+            <Link href="" passHref>
+              View
+            </Link>
+          ),
           key: "0",
         },
         {
-          label: <a href="">2nd menu item</a>,
+          label: <Link href="">2nd menu item</Link>,
           key: "1",
         },
         {
@@ -54,13 +59,14 @@ const columns: ColumnsType<AnyObject> | undefined = [
         },
       ];
       return (
-        <Dropdown menu={{ items }} trigger={["click"]}>
+        <Dropdown menu={{ items }} trigger={["click"]} placement="bottom">
           <button>
             <DotMenuIcon />
           </button>
         </Dropdown>
       );
     },
+    align: "center",
   },
 ];
 

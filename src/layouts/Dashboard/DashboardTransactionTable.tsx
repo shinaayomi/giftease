@@ -8,8 +8,8 @@ interface DataType {
   key: string;
   transactionId: string;
   transactionType: string;
-  amount: number;
-  date: number;
+  amount: string;
+  date: string;
   status: string;
 }
 
@@ -48,7 +48,7 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: "Date",
     key: "date",
     dataIndex: "date",
-    render: (price) => <>₦{price}</>,
+    render: (dates) => <>{dates}</>,
   },
   {
     title: "Status",
@@ -74,24 +74,24 @@ export default function DashboardTransactionTable() {
       key: "1",
       transactionId: "657754U4I9647",
       transactionType: "Wallet top-up",
-      amount: 56000,
-      date: 3455,
+      amount: "56,000",
+      date: "26/12/2023",
       status: "Successful",
     },
     {
       key: "2",
       transactionId: "efzteteu8648j904848..",
       transactionType: "Voucher gen.",
-      amount: 54000,
-      date: 4667,
+      amount: "54,000",
+      date: "26/12/2023",
       status: "Failed",
     },
     {
       key: "3",
       transactionId: "efzteteu8648j904848..",
       transactionType: "Wallet top-up",
-      amount: 23454,
-      date: 34578655,
+      amount: "23,454",
+      date: "26/12/2023",
       status: "Successful",
     },
   ];

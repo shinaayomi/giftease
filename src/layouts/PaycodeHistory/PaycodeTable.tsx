@@ -19,8 +19,8 @@ interface DataType {
   key: string;
   paycodeId: string;
   beneficiary: string;
-  amtGenerated: number;
-  amtRamaining: number;
+  amtGenerated: string;
+  amtRamaining: string;
   dateCreated: string;
   dateExpired: string;
   status: string;
@@ -129,8 +129,8 @@ export default function PaycodeTable() {
       key: "1",
       paycodeId: "efzteteu8648j904848..",
       beneficiary: "Hira Mibwala",
-      amtGenerated: 56000,
-      amtRamaining: 3455,
+      amtGenerated: "56,000",
+      amtRamaining: "3,455",
       dateCreated: "26/12/2023",
       dateExpired: "26/12/2024",
       status: "Active",
@@ -141,8 +141,8 @@ export default function PaycodeTable() {
       paycodeId: "efzteteu8648j904848..",
       beneficiary:
         "Hira Mibwala, Miebaka, Idris, Malik, Sunday, Tunde, Samuel, Ade, and 256 others",
-      amtGenerated: 54000,
-      amtRamaining: 4667,
+      amtGenerated: "54,000",
+      amtRamaining: "4,667",
       dateCreated: "26/12/2023",
       dateExpired: "26/12/2024",
       status: "Used",
@@ -152,8 +152,8 @@ export default function PaycodeTable() {
       key: "3",
       paycodeId: "efzteteu8648j904848..",
       beneficiary: "Hira Mibwala",
-      amtGenerated: 23454,
-      amtRamaining: 34578655,
+      amtGenerated: "23,454",
+      amtRamaining: "34,578,655",
       dateCreated: "26/12/2023",
       dateExpired: "26/12/2024",
       status: "Expired",

@@ -27,6 +27,22 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: "Subject",
     dataIndex: "subject",
     key: "subject",
+    render: (subj) => (
+      <div className="flex items-center text-sm">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <path d="M10 0L20 10L10 20L0 10L10 0Z" fill="#EB5757" />
+        </svg>
+        <span className="text-[#333] ms-2">Complaint,</span>
+        <span className="flex-1 text-[#BDBDBD]">{subj}</span>
+      </div>
+    ),
+    width: 362,
   },
   {
     title: "Handled by",
@@ -107,24 +123,24 @@ export default function SupportTable() {
   const data: DataType[] = [
     {
       key: "1",
-      ticketId: "657754U4I9647",
-      subject: "Wallet top up Payment made from Flutterwave",
+      ticketId: "#7456589",
+      subject: "I tried to create a paycode of ₦50.",
       handledBy: "Samuel A.",
       dateCreated: "24/06/22 12:30pm",
       status: "Done",
     },
     {
       key: "2",
-      ticketId: "efzteteu8648j904848..",
-      subject: "Voucher generated for The Place",
+      ticketId: "#7456589",
+      subject: "I tried to create a paycode of ₦50.",
       handledBy: "Samuel A.",
       dateCreated: "24/06/22 12:30pm",
       status: "Failed",
     },
     {
       key: "3",
-      ticketId: "efzteteu8648j904848..",
-      subject: "Wallet top up Payment made from Flutterwave",
+      ticketId: "#7456589",
+      subject: "I tried to create a paycode of ₦50.",
       handledBy: "Samuel A.",
       dateCreated: "24/06/22 12:30pm",
       status: "Done",
@@ -133,7 +149,7 @@ export default function SupportTable() {
 
   return (
     <div className="paycodeTable">
-      <Table columns={columns} dataSource={data} scroll={{ x: 670, y: 340 }} />
+      <Table columns={columns} dataSource={data} scroll={{ x: 870, y: 340 }} />
     </div>
   );
 }
