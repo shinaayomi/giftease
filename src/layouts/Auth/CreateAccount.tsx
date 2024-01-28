@@ -1,6 +1,7 @@
 import AuthLayout from "@/components/AuthLayout";
 import { GifteaseLogo2 } from "@/utils/AppImages";
-import { Button, Checkbox, Form, Input, Modal } from "antd";
+import { NigeriaIcon, USAIcon } from "@/utils/icons";
+import { Button, Checkbox, Form, Input, Modal, Select } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -23,12 +24,19 @@ export default function CreateAccount() {
     setIsModalOpen(false);
   };
 
+  const handleSelect = (value: unknown) => {
+    console.log(`selected ${value}`);
+  };
+
   type FieldType = {
     companyName?: string;
     aboutUs?: string;
     organizationEmail?: string;
-    phoneNumber?: string;
     businessRepresentative?: string;
+    companySize?: string;
+    country?: string;
+    countryCode?: string;
+    phoneNumber?: string;
     password?: string;
     terms_condition?: string;
   };
@@ -77,7 +85,10 @@ export default function CreateAccount() {
                 label="About Us"
                 name="aboutUs"
                 rules={[
-                  { required: true, message: "Please enter your email!" },
+                  {
+                    required: true,
+                    message: "Please type something about you!",
+                  },
                 ]}
               >
                 <Input
@@ -86,44 +97,155 @@ export default function CreateAccount() {
                 />
               </Form.Item>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <Form.Item<FieldType>
-                  label="Organization’s email"
-                  name="organizationEmail"
-                  rules={[
-                    { required: true, message: "Please enter your email!" },
-                  ]}
-                >
-                  <Input
-                    className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
-                    placeholder="E.g. john@gmail.com"
-                  />
-                </Form.Item>
-                <Form.Item<FieldType>
-                  label="Phone number"
-                  name="phoneNumber"
-                  rules={[
-                    { required: true, message: "Please enter your email!" },
-                  ]}
-                >
-                  <Input
-                    className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
-                    placeholder="Phone number"
-                  />
-                </Form.Item>
-              </div>
+              <Form.Item<FieldType>
+                label="Organization’s email"
+                name="organizationEmail"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter Organization’s email!",
+                  },
+                ]}
+              >
+                <Input
+                  className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
+                  placeholder="E.g. john@gmail.com"
+                />
+              </Form.Item>
 
               <Form.Item<FieldType>
                 label="Business representative"
                 name="businessRepresentative"
                 rules={[
-                  { required: true, message: "Please enter your email!" },
+                  {
+                    required: true,
+                    message: "Please enter Business representative!",
+                  },
                 ]}
               >
                 <Input
                   className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
                   placeholder="E.g. john"
                 />
+              </Form.Item>
+
+              <Form.Item<FieldType>
+                label="Company’s size"
+                name="companySize"
+                rules={[
+                  { required: true, message: "Please select Company’s size!" },
+                ]}
+              >
+                <Select
+                  className="form-btn w-full border border-[#E0E0E0] rounded-lg"
+                  defaultValue="Select Company’s size"
+                  onChange={handleSelect}
+                  options={[
+                    {
+                      value: "all",
+                      label: "All merchants",
+                    },
+                    {
+                      value: "per",
+                      label: "first merchant",
+                    },
+                    {
+                      value: "dollar",
+                      label: "second merchant",
+                    },
+                  ]}
+                />
+              </Form.Item>
+
+              <Form.Item<FieldType>
+                label="Country"
+                name="country"
+                rules={[
+                  { required: true, message: "Please select a Country!" },
+                ]}
+              >
+                <Select
+                  className="form-btn w-full border border-[#E0E0E0] rounded-lg"
+                  defaultValue="Select a Country"
+                  onChange={handleSelect}
+                  options={[
+                    {
+                      value: "nig",
+                      label: "Nigeria",
+                    },
+                    {
+                      value: "usa",
+                      label: "United State",
+                    },
+                    {
+                      value: "eng",
+                      label: "England",
+                    },
+                  ]}
+                />
+              </Form.Item>
+
+              <Form.Item<FieldType>
+                label="Phone number"
+                style={{ marginBottom: 0 }}
+              >
+                <div className="flex items-center gap-2">
+                  <Form.Item<FieldType>
+                    name="countryCode"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please select country code!",
+                      },
+                    ]}
+                  >
+                    <Select
+                      className="form-btn"
+                      style={{ width: 130 }}
+                      defaultValue="nig"
+                      onChange={handleSelect}
+                      options={[
+                        {
+                          value: "nig",
+                          label: (
+                            <div className="flex items-center gap-2">
+                              <NigeriaIcon />
+                              <span className="text-[#9B9B9B] text-xs">
+                                (234)
+                              </span>
+                            </div>
+                          ),
+                        },
+                        {
+                          value: "usa",
+                          label: (
+                            <div className="flex items-center gap-2">
+                              <USAIcon />{" "}
+                              <span className="text-[#9B9B9B] text-xs">
+                                (18)
+                              </span>
+                            </div>
+                          ),
+                        },
+                      ]}
+                    />
+                  </Form.Item>
+                  <Form.Item<FieldType>
+                    name="phoneNumber"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter your phone number!",
+                      },
+                    ]}
+                    className="flex-1"
+                  >
+                    <Input
+                      className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
+                      placeholder="63683783783"
+                    />
+                  </Form.Item>
+                </div>
               </Form.Item>
 
               <Form.Item<FieldType>
@@ -142,6 +264,12 @@ export default function CreateAccount() {
               <Form.Item<FieldType>
                 name="terms_condition"
                 valuePropName="checked"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please accept terms and condition!",
+                  },
+                ]}
               >
                 <Checkbox>
                   <span className="text-[#4F4F4F]">

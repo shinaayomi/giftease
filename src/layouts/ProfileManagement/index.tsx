@@ -15,7 +15,7 @@ export default function ProfileManagement() {
         <h4 className="text-[#4F4F4F] text-2xl text-center font-satoshi-medium mb-5">
           Profile Management
         </h4>
-        <div className="w-fit max-w-full mx-auto flex justify-center items-center bg-white border border-[rgba(178,177,255,0.50)] rounded-[30px] p-2 mb-7">
+        <div className="w-fit max-w-full mx-auto flex justify-center items-center bg-white border border-[rgba(178,177,255,0.50)] rounded-[30px] p-1 mb-7">
           {["Bussiness", "Business Logo"].map((btn, index) => (
             <button
               key={index}
