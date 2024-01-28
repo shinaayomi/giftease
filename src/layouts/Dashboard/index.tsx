@@ -9,6 +9,7 @@ import {
   VoucherIcon,
   WalletIcon,
   PlusIcon,
+  ConvertIcon,
 } from "@/utils/icons";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -103,10 +104,15 @@ export default function Dashboard() {
               <h1 className="text-[#4F4F4F] text-2xl lg:text-[32px] font-satoshi-black mb-2">
                 $5,000,000,000
               </h1>
-              <button className="flex items-center gap-2 h-10 border border-[#F2F2F2] rounded-lg px-2">
-                <USAIcon />{" "}
-                <span className="text-[#9B9B9B] text-xs">US Dollars</span>
-              </button>
+              <div className="flex justify-between items-center">
+                <button className="flex items-center gap-2 h-10 border border-[#F2F2F2] rounded-lg px-2">
+                  <USAIcon />{" "}
+                  <span className="text-[#9B9B9B] text-xs">US Dollars</span>
+                </button>
+                <button className="h-10 w-28 flex justify-center items-center bg-[#E0DCF9] text-xs rounded-[6px]">
+                  Convert <ConvertIcon />
+                </button>
+              </div>
               {/* <div className="app-select">
                 <Select
                   defaultValue="dollar"

@@ -988,3 +988,22 @@ export const ViewIcon = () => {
     </svg>
   );
 };
+
+export const ConvertIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="17"
+      height="16"
+      viewBox="0 0 17 16"
+      fill="none"
+    >
+      <path
+        d="M4.1914 11.3427C5.85807 14.0093 10.2331 14.0067 12.3702 11.8696C13.592 10.6478 14.1153 8.99206 13.9401 7.39853M4.1914 11.3427L4.14821 13.3207M4.1914 11.3427L6.08302 11.3859M12.8536 4.66663C11.1666 2 6.76811 1.99324 4.63098 4.13036C3.40942 5.35193 2.88609 7.00732 3.061 8.6006M12.8536 4.66663V2.67925M12.8536 4.66663H10.8333"
+        stroke="currentcolor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

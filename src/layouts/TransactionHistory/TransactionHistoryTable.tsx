@@ -1,4 +1,4 @@
-import { DotMenuIcon } from "@/utils/icons";
+import { DotMenuIcon, ViewIcon } from "@/utils/icons";
 import { Dropdown, Table } from "antd";
 import type { MenuProps } from "antd";
 import type { ColumnsType } from "antd/es/table";
@@ -9,7 +9,7 @@ interface DataType {
   key: string;
   transactionId: string;
   description: string;
-  amount: number;
+  amount: string;
   date: string;
   transactionType: string;
   status: string;
@@ -21,11 +21,13 @@ const columns: ColumnsType<AnyObject> | undefined = [
     dataIndex: "transactionId",
     key: "transactionId",
     render: (text) => <span>{text}</span>,
+    width: 200,
   },
   {
     title: "Description",
     dataIndex: "description",
     key: "description",
+    render: (des) => <div className=" text-[#828282] truncate">{des}</div>,
   },
   {
     title: "Amount",
@@ -37,7 +39,7 @@ const columns: ColumnsType<AnyObject> | undefined = [
     title: "Date",
     key: "date",
     dataIndex: "date",
-    render: (price) => <>₦{price}</>,
+    render: (date) => <>{date}</>,
   },
   {
     title: "Transaction Type",
@@ -80,19 +82,12 @@ const columns: ColumnsType<AnyObject> | undefined = [
     render: () => {
       const items: MenuProps["items"] = [
         {
-          label: <a href="">View</a>,
+          label: (
+            <button className="flex items-center gap-3 text-app-purple p-2">
+              <ViewIcon /> <span>View Details</span>
+            </button>
+          ),
           key: "0",
-        },
-        {
-          label: <a href="">2nd menu item</a>,
-          key: "1",
-        },
-        {
-          type: "divider",
-        },
-        {
-          label: "3rd menu item",
-          key: "3",
         },
       ];
       return (
@@ -110,28 +105,28 @@ export default function TransactionHistoryTable() {
   const data: DataType[] = [
     {
       key: "1",
-      transactionId: "657754U4I9647",
+      transactionId: "#Wall57645947",
       description: "Wallet top up Payment made from Flutterwave",
-      amount: 56000,
-      date: "26/01/2024",
+      amount: "56,000",
+      date: "24/06/22 12:30pm",
       transactionType: "Wallet top-up",
       status: "Successful",
     },
     {
       key: "2",
-      transactionId: "efzteteu8648j904848..",
+      transactionId: "efzteteu8648j75y5",
       description: "Voucher generated for The Place",
-      amount: 54000,
-      date: "26/01/2024",
+      amount: "54,000",
+      date: "24/06/22 12:30pm",
       transactionType: "Voucher gen.",
       status: "Failed",
     },
     {
       key: "3",
-      transactionId: "efzteteu8648j904848..",
+      transactionId: "efzteteu8648j75y5",
       description: "Wallet top up Payment made from Flutterwave",
-      amount: 23454,
-      date: "26/01/2024",
+      amount: "23,454",
+      date: "24/06/22 12:30pm",
       transactionType: "Wallet top-up",
       status: "Successful",
     },
@@ -139,7 +134,7 @@ export default function TransactionHistoryTable() {
 
   return (
     <div className="paycodeTable">
-      <Table columns={columns} dataSource={data} scroll={{ x: 870, y: 340 }} />
+      <Table columns={columns} dataSource={data} scroll={{ x: 1070, y: 340 }} />
     </div>
   );
 }
