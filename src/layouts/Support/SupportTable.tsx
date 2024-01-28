@@ -149,7 +149,7 @@ export default function SupportTable() {
 
   return (
     <div className="paycodeTable">
-      <Table columns={columns} dataSource={data} scroll={{ x: 870, y: 340 }} />
+      <Table columns={columns} dataSource={data} scroll={{ x: 1070, y: 340 }} />
     </div>
   );
 }

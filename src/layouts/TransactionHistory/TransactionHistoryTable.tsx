@@ -139,7 +139,7 @@ export default function TransactionHistoryTable() {
 
   return (
     <div className="paycodeTable">
-      <Table columns={columns} dataSource={data} scroll={{ x: 670, y: 340 }} />
+      <Table columns={columns} dataSource={data} scroll={{ x: 870, y: 340 }} />
     </div>
   );
 }

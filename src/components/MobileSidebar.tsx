@@ -10,6 +10,7 @@ export default function MobileSidebar({ open, onClose }: any) {
     <Drawer
       className="mobileDrawer"
       placement="left"
+      style={{ background: "#443792" }}
       onClose={onClose}
       open={open}
       closable={false}
