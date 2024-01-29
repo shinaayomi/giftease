@@ -9,7 +9,24 @@ import React, { useState } from "react";
 
 export default function CreateAccount() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inputValues, setInputValues] = useState({
+    companyName: "",
+    aboutUs: "",
+    organizationEmail: "",
+    businessRepresentative: "",
+    companySize: "",
+    country: "",
+    countryCode: "",
+    phoneNumber: "",
+    password: "",
+    terms_condition: false,
+  });
   const router = useRouter();
+
+  const handleInputChange = (name: any, e: any) => {
+    setInputValues({ ...inputValues, [name]: e.target.value });
+  };
+  console.log("--", inputValues);
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
@@ -38,7 +55,7 @@ export default function CreateAccount() {
     countryCode?: string;
     phoneNumber?: string;
     password?: string;
-    terms_condition?: string;
+    terms_condition?: boolean;
   };
 
   return (
@@ -69,73 +86,46 @@ export default function CreateAccount() {
               onFinish={onFinish}
               autoComplete="off"
             >
-              <Form.Item<FieldType>
-                label="Company’s name"
-                name="companyName"
-                rules={[
-                  { required: true, message: "Please enter your email!" },
-                ]}
-              >
+              <Form.Item<FieldType> label="Company’s name" name="companyName">
                 <Input
                   className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
                   placeholder="E.g. john"
+                  onChange={(e) => handleInputChange("companyName", e)}
                 />
               </Form.Item>
-              <Form.Item<FieldType>
-                label="About Us"
-                name="aboutUs"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please type something about you!",
-                  },
-                ]}
-              >
+              <Form.Item<FieldType> label="About Us" name="aboutUs">
                 <Input
                   className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
                   placeholder="E.g. john@gmail.com"
+                  onChange={(e) => handleInputChange("aboutUs", e)}
                 />
               </Form.Item>
 
               <Form.Item<FieldType>
                 label="Organization’s email"
                 name="organizationEmail"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter Organization’s email!",
-                  },
-                ]}
               >
                 <Input
                   className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
                   placeholder="E.g. john@gmail.com"
+                  onChange={(e) => handleInputChange("organizationEmail", e)}
                 />
               </Form.Item>
 
               <Form.Item<FieldType>
                 label="Business representative"
                 name="businessRepresentative"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter Business representative!",
-                  },
-                ]}
               >
                 <Input
                   className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
                   placeholder="E.g. john"
+                  onChange={(e) =>
+                    handleInputChange("businessRepresentative", e)
+                  }
                 />
               </Form.Item>
 
-              <Form.Item<FieldType>
-                label="Company’s size"
-                name="companySize"
-                rules={[
-                  { required: true, message: "Please select Company’s size!" },
-                ]}
-              >
+              <Form.Item<FieldType> label="Company’s size" name="companySize">
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select Company’s size"
@@ -157,13 +147,7 @@ export default function CreateAccount() {
                 />
               </Form.Item>
 
-              <Form.Item<FieldType>
-                label="Country"
-                name="country"
-                rules={[
-                  { required: true, message: "Please select a Country!" },
-                ]}
-              >
+              <Form.Item<FieldType> label="Country" name="country">
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select a Country"
@@ -190,15 +174,7 @@ export default function CreateAccount() {
                 style={{ marginBottom: 0 }}
               >
                 <div className="flex items-center gap-2">
-                  <Form.Item<FieldType>
-                    name="countryCode"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please select country code!",
-                      },
-                    ]}
-                  >
+                  <Form.Item<FieldType> name="countryCode">
                     <Select
                       className="form-btn"
                       style={{ width: 130 }}
@@ -230,48 +206,31 @@ export default function CreateAccount() {
                       ]}
                     />
                   </Form.Item>
-                  <Form.Item<FieldType>
-                    name="phoneNumber"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please enter your phone number!",
-                      },
-                    ]}
-                    className="flex-1"
-                  >
+                  <Form.Item<FieldType> name="phoneNumber" className="flex-1">
                     <Input
                       className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
                       placeholder="63683783783"
+                      onChange={(e) => handleInputChange("phoneNumber", e)}
                     />
                   </Form.Item>
                 </div>
               </Form.Item>
 
-              <Form.Item<FieldType>
-                label="Password"
-                name="password"
-                rules={[
-                  { required: true, message: "Please enter your password!" },
-                ]}
-              >
+              <Form.Item<FieldType> label="Password" name="password">
                 <Input.Password
                   placeholder="********"
                   className="h-12 md:h-14 border border-[#E0E0E0] rounded-lg"
+                  onChange={(e) => handleInputChange("password", e)}
                 />
               </Form.Item>
 
               <Form.Item<FieldType>
                 name="terms_condition"
                 valuePropName="checked"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please accept terms and condition!",
-                  },
-                ]}
               >
-                <Checkbox>
+                <Checkbox
+                  onChange={(e) => handleInputChange("terms_condition", e)}
+                >
                   <span className="text-[#4F4F4F]">
                     I accept the{" "}
                     <span className="text-[#333] underline">
@@ -285,6 +244,7 @@ export default function CreateAccount() {
                 <Button
                   type="primary"
                   className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
+                  disabled={!inputValues.password ? true : false}
                   htmlType="submit"
                 >
                   Create Account

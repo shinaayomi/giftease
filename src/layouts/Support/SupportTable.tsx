@@ -1,4 +1,4 @@
-import { DotMenuIcon } from "@/utils/icons";
+import { DotMenuIcon, ViewIcon } from "@/utils/icons";
 import { Dropdown, Table } from "antd";
 import type { MenuProps } from "antd";
 import type { ColumnsType } from "antd/es/table";
@@ -93,19 +93,12 @@ const columns: ColumnsType<AnyObject> | undefined = [
     render: () => {
       const items: MenuProps["items"] = [
         {
-          label: <a href="">View</a>,
+          label: (
+            <button className="flex items-center gap-3 text-app-purple p-2">
+              <ViewIcon /> <span>View tickect</span>
+            </button>
+          ),
           key: "0",
-        },
-        {
-          label: <a href="">2nd menu item</a>,
-          key: "1",
-        },
-        {
-          type: "divider",
-        },
-        {
-          label: "3rd menu item",
-          key: "3",
         },
       ];
       return (
