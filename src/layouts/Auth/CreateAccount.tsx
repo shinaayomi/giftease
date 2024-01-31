@@ -245,7 +245,7 @@ export default function CreateAccount() {
                     <Select
                       className="form-btn"
                       style={{ width: 130 }}
-                      defaultValue={countryData[1].countryCallingCodes}
+                      defaultValue={`🇳🇬 (+234)`}
                       onChange={handleCountryCodeSelect}
                       options={countryCode}
                     />
