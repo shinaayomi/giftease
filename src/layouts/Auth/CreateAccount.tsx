@@ -1,11 +1,12 @@
 import AuthLayout from "@/components/AuthLayout";
 import { GifteaseLogo2 } from "@/utils/AppImages";
+import { countryData } from "@/utils/countrycode";
 import { NigeriaIcon, USAIcon } from "@/utils/icons";
-import { Button, Checkbox, Form, Input, Modal, Select } from "antd";
+import { Button, Checkbox, Form, Input, Modal, Select, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function CreateAccount() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,7 +21,12 @@ export default function CreateAccount() {
     phoneNumber: "",
     password: "",
     terms_condition: false,
+    pin: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [country, setCountry] = useState([]);
+  const [countryCode, setCountryCode] = useState([]);
+
   const router = useRouter();
 
   const handleInputChange = (name: any, e: any) => {
@@ -28,9 +34,40 @@ export default function CreateAccount() {
   };
   console.log("--", inputValues);
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log("Success:", values);
-    setIsModalOpen(true);
+    setLoading(true);
+
+    const payload = {
+      company_name: values.companyName,
+      about: inputValues.aboutUs,
+      email: values.organizationEmail,
+      representative_name: values.businessRepresentative,
+      password: values.password,
+      country: values.country,
+      phone: values.phoneNumber,
+      pin: 99999,
+    };
+    try {
+      const response = await fetch(
+        "http://143.110.144.25:8000/users/register/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        message.success("Account created successfully");
+        setIsModalOpen(true);
+      } else {
+        message.error("Something is wrong with your information");
+      }
+    } catch (err: any) {
+      console.log(err);
+      setLoading(false);
+    }
   };
 
   const handleOk = () => {
@@ -41,8 +78,16 @@ export default function CreateAccount() {
     setIsModalOpen(false);
   };
 
-  const handleSelect = (value: unknown) => {
-    console.log(`selected ${value}`);
+  const handleSelect = (value: any) => {
+    console.log("selected", value);
+  };
+
+  const handleCountrySelect = (value: any) => {
+    setCountry(value);
+  };
+
+  const handleCountryCodeSelect = (value: any) => {
+    setCountryCode(value);
   };
 
   type FieldType = {
@@ -57,6 +102,41 @@ export default function CreateAccount() {
     password?: string;
     terms_condition?: boolean;
   };
+
+  useEffect(() => {
+    let data: any = [];
+    countryData.map((country, i) => {
+      if (country.status === "assigned") {
+        data.push({
+          value: country.ioc,
+          label: country.name,
+          key: i,
+        });
+      }
+    });
+    setCountry(data);
+  }, []);
+
+  useEffect(() => {
+    let data: any = [];
+    countryData.map((countryCodes, i) => {
+      if (countryCodes.status === "assigned") {
+        data.push({
+          value: countryCodes.ioc,
+          label: (
+            <div className="flex items-center gap-2">
+              {countryCodes.emoji}{" "}
+              <span className="text-[#9B9B9B] text-xs">
+                ({countryCodes.countryCallingCodes})
+              </span>
+            </div>
+          ),
+          key: i,
+        });
+      }
+    });
+    setCountryCode(data);
+  }, []);
 
   return (
     <AuthLayout>
@@ -132,16 +212,16 @@ export default function CreateAccount() {
                   onChange={handleSelect}
                   options={[
                     {
-                      value: "all",
-                      label: "All merchants",
+                      value: "three",
+                      label: "3",
                     },
                     {
-                      value: "per",
-                      label: "first merchant",
+                      value: "six",
+                      label: "6",
                     },
                     {
-                      value: "dollar",
-                      label: "second merchant",
+                      value: "seven",
+                      label: "9",
                     },
                   ]}
                 />
@@ -151,21 +231,8 @@ export default function CreateAccount() {
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select a Country"
-                  onChange={handleSelect}
-                  options={[
-                    {
-                      value: "nig",
-                      label: "Nigeria",
-                    },
-                    {
-                      value: "usa",
-                      label: "United State",
-                    },
-                    {
-                      value: "eng",
-                      label: "England",
-                    },
-                  ]}
+                  onChange={handleCountrySelect}
+                  options={country}
                 />
               </Form.Item>
 
@@ -178,32 +245,9 @@ export default function CreateAccount() {
                     <Select
                       className="form-btn"
                       style={{ width: 130 }}
-                      defaultValue="nig"
-                      onChange={handleSelect}
-                      options={[
-                        {
-                          value: "nig",
-                          label: (
-                            <div className="flex items-center gap-2">
-                              <NigeriaIcon />
-                              <span className="text-[#9B9B9B] text-xs">
-                                (234)
-                              </span>
-                            </div>
-                          ),
-                        },
-                        {
-                          value: "usa",
-                          label: (
-                            <div className="flex items-center gap-2">
-                              <USAIcon />{" "}
-                              <span className="text-[#9B9B9B] text-xs">
-                                (18)
-                              </span>
-                            </div>
-                          ),
-                        },
-                      ]}
+                      defaultValue={countryData[1].countryCallingCodes}
+                      onChange={handleCountryCodeSelect}
+                      options={countryCode}
                     />
                   </Form.Item>
                   <Form.Item<FieldType> name="phoneNumber" className="flex-1">
