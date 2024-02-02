@@ -22,13 +22,14 @@ export default function Login() {
           body: JSON.stringify(values),
         }
       );
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
         message.success("You are successfully logged in");
         setLoading(false)
         router.push("/dashboard")
       } else {
-        message.error("Please input the right information");
+        message.error(data.message);
+        setLoading(false)
       }
     } catch (err: any) {
       console.log(err);

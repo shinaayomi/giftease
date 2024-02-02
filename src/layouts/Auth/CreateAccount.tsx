@@ -65,6 +65,7 @@ export default function CreateAccount() {
         setIsModalOpen(true);
       } else {
         message.error("Something is wrong with your information");
+        setLoading(false)
       }
     } catch (err: any) {
       console.log(err);
@@ -82,14 +83,6 @@ export default function CreateAccount() {
 
   const handleSelect = (value: any) => {
     console.log("selected", value);
-  };
-
-  const handleCountrySelect = (value: any) => {
-    setCountry(value);
-  };
-
-  const handleCountryCodeSelect = (value: any) => {
-    setCountryCode(value);
   };
 
   type FieldType = {
@@ -211,7 +204,7 @@ export default function CreateAccount() {
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select Company’s size"
-                  onChange={handleSelect}
+                  onSelect={handleSelect}
                   options={[
                     {
                       value: "one",
@@ -241,7 +234,7 @@ export default function CreateAccount() {
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select a Country"
-                  onChange={handleCountrySelect}
+                  onSelect={handleSelect}
                   options={country}
                 />
               </Form.Item>
@@ -256,7 +249,7 @@ export default function CreateAccount() {
                       className="form-btn"
                       style={{ width: 130 }}
                       defaultValue={`🇳🇬 (+234)`}
-                      onChange={handleCountryCodeSelect}
+                      onSelect={handleSelect} 
                       options={countryCode}
                     />
                   </Form.Item>
@@ -283,7 +276,8 @@ export default function CreateAccount() {
                 valuePropName="checked"
               >
                 <Checkbox
-                  onChange={(e) => handleInputChange("terms_condition", e)}
+                  // onChange={(e) => handleInputChange("terms_condition", e)}
+                  checked={inputValues.terms_condition}
                 >
                   <span className="text-[#4F4F4F]">
                     I accept the{" "}
