@@ -46,6 +46,7 @@ export default function CreateAccount() {
       password: values.password,
       country: values.country,
       phone: values.phoneNumber,
+      company_size: values.companySize,
       pin: 99999,
     };
     try {
@@ -60,6 +61,7 @@ export default function CreateAccount() {
       if (response.ok) {
         const data = await response.json();
         message.success("Account created successfully");
+        setLoading(false);
         setIsModalOpen(true);
       } else {
         message.error("Something is wrong with your information");
@@ -212,16 +214,24 @@ export default function CreateAccount() {
                   onChange={handleSelect}
                   options={[
                     {
+                      value: "one",
+                      label: "1 - 10",
+                    },
+                    {
+                      value: "two",
+                      label: "11 -50",
+                    },
+                    {
                       value: "three",
-                      label: "3",
+                      label: "51 -100",
                     },
                     {
-                      value: "six",
-                      label: "6",
+                      value: "four",
+                      label: "101 - 500",
                     },
                     {
-                      value: "seven",
-                      label: "9",
+                      value: "five",
+                      label: "501 and above",
                     },
                   ]}
                 />
@@ -286,6 +296,7 @@ export default function CreateAccount() {
 
               <Form.Item>
                 <Button
+                loading={loading}
                   type="primary"
                   className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
                   disabled={!inputValues.password ? true : false}
@@ -351,8 +362,7 @@ export default function CreateAccount() {
             Verify your Mail
           </p>
           <p className="text-center text-[#4F4F4F]">
-            We have you sent a verification mail. Kindly check your mail to
-            verify your mail.
+            We have you sent a verification mail with an OTP. Kindly check your mail.
           </p>
           <p className="text-center font-satoshi-medium mt-20">
             Didn’t get a mail?{" "}

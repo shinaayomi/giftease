@@ -1,23 +1,45 @@
 import { GifteaseLogo2 } from "@/utils/AppImages";
 import Image from "next/image";
-import React from "react";
-import { Button, Form, Input } from "antd";
+import React, { useState } from "react";
+import { Button, Form, Input, message } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import AuthLayout from "@/components/AuthLayout";
 
 export default function Login() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log("Success:", values);
-    router.push("/dashboard");
+    setLoading(true)
+    try {
+      const response = await fetch(
+        "http://143.110.144.25:8000/users/login/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        message.success("You are successfully logged in");
+        setLoading(false)
+        router.push("/dashboard")
+      } else {
+        message.error("Please input the right information");
+      }
+    } catch (err: any) {
+      console.log(err);
+      setLoading(false);
+    }
   };
+
 
   type FieldType = {
     email?: string;
     password?: string;
-    forgotPassword?: string;
   };
 
   return (
@@ -74,7 +96,7 @@ export default function Login() {
                 />
               </Form.Item>
 
-              <Form.Item<FieldType> name="forgotPassword">
+              <Form.Item<FieldType>>
                 <div className="pb-6">
                   <Link href="/forgot-password" passHref>
                     <span className="text-app-purple font-satoshi-bold">
@@ -87,6 +109,7 @@ export default function Login() {
               <Form.Item>
                 <Button
                   type="primary"
+                  loading={loading}
                   className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
                   htmlType="submit"
                 >
