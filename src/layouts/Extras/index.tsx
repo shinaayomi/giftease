@@ -117,9 +117,9 @@ export default function Extras() {
                     <path
                       d="M5.83301 14.1668L14.1663 5.8335M14.1663 5.8335H6.66634M14.1663 5.8335V13.3335"
                       stroke="#443792"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </button>

@@ -1,17 +1,40 @@
 import { ForgotPasswordLogo, GifteaseLogo2 } from "@/utils/AppImages";
 import Image from "next/image";
 import React, { useState } from "react";
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal, message } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function ForgotPassword() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log("Success:", values);
-    setIsModalOpen(true);
+    setLoading(true);
+    try {
+      const res = await fetch(
+        "http://143.110.144.25:8000/users/forgot/password/request/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        }
+      );
+      const data = await res.json();
+      if (res.ok) {
+        message.success("Password changed successfully");
+        setLoading(false);
+        setIsModalOpen(true);
+      } else {
+        message.error(data.message);
+        setLoading(false);
+      }
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
   };
 
   type FieldType = {
@@ -67,10 +90,11 @@ export default function ForgotPassword() {
                 label="Email address"
                 name="email"
                 rules={[
-                  { required: true, message: "Please enter your email!" },
+                  { required: true, message: "Please put in your email!" },
                 ]}
               >
                 <Input
+                  type="email"
                   className="h-12 md:h-14 bg-[#F8F8F8] border border-[#E0E0E0] rounded-lg"
                   placeholder="E.g. john@gmail.com"
                 />
@@ -78,6 +102,7 @@ export default function ForgotPassword() {
 
               <Form.Item>
                 <Button
+                  loading={loading}
                   type="primary"
                   className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
                   htmlType="submit"
@@ -102,9 +127,9 @@ export default function ForgotPassword() {
                   <path
                     d="M5.5 12H19.5M5.5 12L11.5 6M5.5 12L11.5 18"
                     stroke="#443792"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
                 <span>Back to login page</span>

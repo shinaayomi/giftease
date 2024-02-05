@@ -103,7 +103,7 @@ export default function CreateAccount() {
     countryData.map((country, i) => {
       if (country.status === "assigned") {
         data.push({
-          value: country.ioc,
+          value: country.name,
           label: country.name,
           key: i,
         });
@@ -207,19 +207,19 @@ export default function CreateAccount() {
                   onChange={handleSelect}
                   options={[
                     {
-                      value: "1-10",
+                      value: "1 - 10",
                       label: "1 - 10",
                     },
                     {
-                      value: "11-50",
+                      value: "11 - 50",
                       label: "11 -50",
                     },
                     {
-                      value: "51-100",
+                      value: "51 - 100",
                       label: "51 -100",
                     },
                     {
-                      value: "101-500",
+                      value: "101 - 500",
                       label: "101 - 500",
                     },
                     {
