@@ -32,7 +32,6 @@ export default function CreateAccount() {
   const handleInputChange = (name: any, e: any) => {
     setInputValues({ ...inputValues, [name]: e.target.value });
   };
-  console.log("--", inputValues);
 
   const onFinish = async (values: any) => {
     console.log("Success:", values);
@@ -49,6 +48,7 @@ export default function CreateAccount() {
       company_size: values.companySize,
       pin: 99999,
     };
+
     try {
       const response = await fetch(
         "http://143.110.144.25:8000/users/register/",
@@ -65,7 +65,7 @@ export default function CreateAccount() {
         setIsModalOpen(true);
       } else {
         message.error("Something is wrong with your information");
-        setLoading(false)
+        setLoading(false);
       }
     } catch (err: any) {
       console.log(err);
@@ -117,7 +117,7 @@ export default function CreateAccount() {
     countryData.map((countryCodes, i) => {
       if (countryCodes.status === "assigned") {
         data.push({
-          value: countryCodes.ioc,
+          value: countryCodes.countryCallingCodes[0],
           label: (
             <div className="flex items-center gap-2">
               {countryCodes.emoji}{" "}
@@ -204,26 +204,26 @@ export default function CreateAccount() {
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select Company’s size"
-                  onSelect={handleSelect}
+                  onChange={handleSelect}
                   options={[
                     {
-                      value: "one",
+                      value: "1-10",
                       label: "1 - 10",
                     },
                     {
-                      value: "two",
+                      value: "11-50",
                       label: "11 -50",
                     },
                     {
-                      value: "three",
+                      value: "51-100",
                       label: "51 -100",
                     },
                     {
-                      value: "four",
+                      value: "101-500",
                       label: "101 - 500",
                     },
                     {
-                      value: "five",
+                      value: "501+",
                       label: "501 and above",
                     },
                   ]}
@@ -234,7 +234,10 @@ export default function CreateAccount() {
                 <Select
                   className="form-btn w-full border border-[#E0E0E0] rounded-lg"
                   defaultValue="Select a Country"
-                  onSelect={handleSelect}
+                  onChange={handleSelect}
+                  //  onChange={(e) =>
+                  //   handleInputChange("country", e)
+                  // }
                   options={country}
                 />
               </Form.Item>
@@ -249,7 +252,7 @@ export default function CreateAccount() {
                       className="form-btn"
                       style={{ width: 130 }}
                       defaultValue={`🇳🇬 (+234)`}
-                      onSelect={handleSelect} 
+                      onChange={handleSelect}
                       options={countryCode}
                     />
                   </Form.Item>
@@ -290,7 +293,7 @@ export default function CreateAccount() {
 
               <Form.Item>
                 <Button
-                loading={loading}
+                  loading={loading}
                   type="primary"
                   className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
                   disabled={!inputValues.password ? true : false}
@@ -356,7 +359,8 @@ export default function CreateAccount() {
             Verify your Mail
           </p>
           <p className="text-center text-[#4F4F4F]">
-            We have you sent a verification mail with an OTP. Kindly check your mail.
+            We have you sent a verification mail with an OTP. Kindly check your
+            mail.
           </p>
           <p className="text-center font-satoshi-medium mt-20">
             Didn’t get a mail?{" "}
