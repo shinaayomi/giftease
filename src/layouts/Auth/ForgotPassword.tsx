@@ -11,7 +11,6 @@ export default function ForgotPassword() {
   const router = useRouter();
 
   const onFinish = async (values: any) => {
-    console.log("Success:", values);
     setLoading(true);
     try {
       const res = await fetch(
