@@ -8,11 +8,11 @@
   }
 
   .otp-code_container {
-    @apply justify-center gap-2 sm:gap-4;
+    @apply justify-center gap-2;
   }
 
   .otp-code__input {
-    @apply w-12 sm:w-14 h-12 sm:h-14 bg-[#F5F5F5] text-2xl sm:text-[28px];
+    @apply w-12 sm:w-14 h-12 sm:h-14 bg-[#F5F5F5] text-2xl sm:text-[28px] !important;
   }
 
   .testimonial-carousel .ant-carousel .slick-dots.slick-dots-bottom {

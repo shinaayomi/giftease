@@ -58,13 +58,13 @@ export default function CreateAccount() {
           body: JSON.stringify(payload),
         }
       );
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
         message.success("Account created successfully");
         setLoading(false);
         setIsModalOpen(true);
       } else {
-        message.error("Something is wrong with your information");
+        message.error(data.message);
         setLoading(false);
       }
     } catch (err: any) {
