@@ -69,7 +69,7 @@ export default function OtpConfirmation() {
 
   return (
     <section className="min-h-screen grid place-items-center px-4 py-5 bg-white">
-      <div className="max-w-[636px] mx-auto">
+      <div className="max-w-[536px] mx-auto">
         <Image
           src={GifteaseLogo2}
           alt="Giftease"
