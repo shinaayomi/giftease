@@ -23,7 +23,7 @@ export default function ForgotPassword() {
       );
       const data = await res.json();
       if (res.ok) {
-        message.success("Password changed successfully");
+        message.success(data.message);
         setLoading(false);
         setIsModalOpen(true);
       } else {
