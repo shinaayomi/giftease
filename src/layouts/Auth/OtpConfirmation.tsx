@@ -40,6 +40,32 @@ export default function OtpConfirmation() {
     setOtp(v);
   };
 
+  const handleResend = async () => {
+    let email = router.query.email;
+    try {
+      const response = await fetch(
+        "http://143.110.144.25:8000/users/verify/otp/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        message.success(data.message);
+        setLoading(false);
+        router.push("/dashboard");
+      } else {
+        message.error(data.message);
+        setLoading(false);
+      }
+    } catch (err: any) {
+      console.log(err);
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = async () => {
     let email = router.query.email;
     setLoading(true);
@@ -97,7 +123,11 @@ export default function OtpConfirmation() {
         />
         <p className="text-center mt-8">
           Didn’t get OTP?{" "}
-          <button className="text-app-purple font-satoshi-medium">
+          <button
+            type="button"
+            onClick={handleResend}
+            className="text-app-purple font-satoshi-medium"
+          >
             Resend
           </button>
         </p>
