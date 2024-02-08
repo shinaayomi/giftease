@@ -1,15 +1,39 @@
 import { GifteaseLogo2, ResetPasswordLogo } from "@/utils/AppImages";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ResetPassword() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
+    setLoading(true);
     console.log("Success:", values);
-    router.push("/");
+
+    const token = router.query.token;
+    try {
+      const response = await fetch(
+        "http://143.110.144.25:8000/users/verify/forgot/password/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token, ...values }),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        message.success(data.message);
+        setLoading(false);
+        router.push("/");
+      } else {
+        message.error(data.message);
+        setLoading(false);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   type FieldType = {
@@ -82,6 +106,7 @@ export default function ResetPassword() {
                 type="primary"
                 className="w-full form-btn bg-app-purple rounded-lg font-satoshi-bold mt-4"
                 htmlType="submit"
+                loading={loading}
               >
                 Set Password
               </Button>
