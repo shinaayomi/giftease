@@ -44,7 +44,7 @@ export default function OtpConfirmation() {
     let email = router.query.email;
     try {
       const response = await fetch(
-        "http://143.110.144.25:8000/users/verify/otp/",
+        "http://143.110.144.25:8000/users/resend/otp/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
