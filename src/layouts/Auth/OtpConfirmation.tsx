@@ -57,7 +57,7 @@ export default function OtpConfirmation() {
         setLoading(false);
         router.push("/dashboard");
       } else {
-        message.error(data.message);
+        message.error("OTP can not send");
         setLoading(false);
       }
     } catch (err: any) {

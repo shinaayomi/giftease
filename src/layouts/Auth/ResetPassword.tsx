@@ -26,7 +26,7 @@ export default function ResetPassword() {
       if (response.ok) {
         message.success(data.message);
         setLoading(false);
-        router.push("/");
+        router.push("/dashboard");
       } else {
         message.error(data.message);
         setLoading(false);
